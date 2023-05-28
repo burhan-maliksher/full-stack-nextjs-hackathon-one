@@ -1,3 +1,4 @@
+import Nav from '@/components/code/nav'
 import './globals.css'
 import { Inter } from 'next/font/google'
 
@@ -15,7 +16,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={`flex min-h-screen items-center flex-col  p-10 ${inter.className}`} >
+        <Nav/>
+        {children}
+      </body>
     </html>
   )
 }
