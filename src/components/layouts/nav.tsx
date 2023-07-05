@@ -5,10 +5,10 @@ import {
   NavigationMenu,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import LinkBtn from "./link"
-import Cart from "./cart"
-import Searchbar from "./searchbar"
-import Logo from "./logo"
+import LinkBtn from "../code/link"
+import Cart from "../code/cart"
+import Searchbar from "../code/searchbar"
+import Logo from "../code/logo"
 import Link from "next/link"
 
 export default function Nav() {

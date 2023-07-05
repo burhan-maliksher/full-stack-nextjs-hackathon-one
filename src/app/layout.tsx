@@ -1,6 +1,7 @@
-import Nav from '@/components/code/nav'
+import Nav from '@/components/layouts/nav'
 import './globals.css'
 import { Inter } from 'next/font/google'
+import Footer from '@/components/layouts/footer'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -16,9 +17,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`flex min-h-screen items-center flex-col  p-10 ${inter.className}`} >
-        <Nav/>
-        {children}
+      <body className={` ${inter.className}`} >
+        <div className={`flex min-h-screen items-center flex-col overflow-hidden p-10`}>
+          <Nav/>
+          {children}
+        </div>
+        <Footer/>        
       </body>
     </html>
   )
