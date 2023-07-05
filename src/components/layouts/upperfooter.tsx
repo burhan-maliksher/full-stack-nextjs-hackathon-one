@@ -3,11 +3,12 @@
 import React from 'react'
 import Image from 'next/image'
 import {FaFacebookF,FaLinkedinIn,FaTwitter} from 'react-icons/fa';
+import Link from 'next/link';
 
 export default function UpperFooter() {
   return (
-    <div className='flex flex-col lg:flex-row w-full lg:space-x-6 mb-20'>
-      <div className='flex flex-col space-y-8 w-64 md:w-80 lg:96'>
+    <footer className='flex flex-col space-y-10 lg:flex-row lg:space-y-0 lg:justify-around   w-full  mb-20'>
+      <div className='flex flex-col space-y-8 w-64 md:w-80 lg:w-96 '>
         <Image src={'/Logo.png'} alt={"logo"} width={200} height={0} className=""/>
         <p className='font-light flex '>
             Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.
@@ -19,13 +20,28 @@ export default function UpperFooter() {
         </div>
       </div>
 
-      <p className='pt-4'>Copyright © 2022 Dine Market</p>
-      <p className='pt-4'>Design by. 
-        <span className='font-bold'>Weird Design Studio </span>
-      </p>
-      <p className='pt-4'>Code by. 
-        <span className='font-bold'> shabrina12 on github</span>
-      </p>
-    </div>
+      <div className='font-light flex flex-col space-y-4'>
+        <h3 className='font-bold text-xl text-slate-600'>Company</h3>
+        <Link href={""}>About</Link>
+        <Link href={""}>Terms of Use</Link>
+        <Link href={""}>Privacy Policy</Link>
+        <Link href={""}>How it Works</Link>
+        <Link href={""}>Contact Us</Link>
+      </div>
+
+      <div className='font-light flex flex-col space-y-4'>
+        <h3 className='font-bold text-xl text-slate-600'>Support</h3>
+        <Link href={""}>Support Carrer</Link>
+        <Link href={""}>24h Support</Link>
+        <Link href={""}>Quick Chat</Link>
+      </div>  
+
+      <div className='font-light flex flex-col space-y-4'>
+        <h3 className='font-bold text-xl text-slate-600'>Contact</h3>
+        <Link href={""}>Whatsapp</Link>
+        <Link href={""}>Support 24h</Link>
+      </div>  
+
+    </footer>
   )
 }

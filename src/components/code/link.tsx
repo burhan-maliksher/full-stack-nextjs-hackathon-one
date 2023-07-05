@@ -1,9 +1,7 @@
-import React, { ReactComponentElement } from 'react'
 import {
     NavigationMenuItem,
     NavigationMenuLink,
     navigationMenuTriggerStyle,
-
   } from "@/components/ui/navigation-menu";
 
 type linkProp={
