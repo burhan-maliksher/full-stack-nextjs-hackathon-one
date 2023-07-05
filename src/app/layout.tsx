@@ -2,6 +2,7 @@ import Nav from '@/components/layouts/nav'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Footer from '@/components/layouts/footer'
+import UpperFooter from '@/components/layouts/upperfooter'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,6 +22,7 @@ export default function RootLayout({
         <div className={`flex min-h-screen items-center flex-col overflow-hidden p-10`}>
           <Nav/>
           {children}
+          <UpperFooter/>
         </div>
         <Footer/>        
       </body>
