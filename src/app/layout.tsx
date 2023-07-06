@@ -18,9 +18,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={` ${inter.className}`} >
-        <div className={`flex mx-auto max-w-screen-xl items-center flex-col overflow-hidden p-10`}>
-          <Nav/>
+      <body className={` ${inter.className} overflow-x-hidden`} >
+        <Nav/>
+        <div className={`flex mx-auto max-w-screen-xl items-center flex-col  p-5`}>
           {children}
           <UpperFooter/>
         </div>

@@ -14,7 +14,6 @@ import NavBtnList from "../code/navbtnList"
 import { useEffect, useState } from "react"
 
 export default function Nav() {
-  // const isPc=window.innerWidth >=1024;
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
   useEffect(() => {
@@ -32,16 +31,16 @@ export default function Nav() {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, []);
+  }, [isLargeScreen]);
   return (
-    <div className="flex justify-center items-center  w-full">
+    <div className="mt-2 ">
       <NavigationMenu>
-        <NavigationMenuList className="flex justify-between px-6 md:px-10 lg:px-0  text-lg w-screen lg:w-full ">
+        <NavigationMenuList className="flex justify-between px-6 lg:pl-10     text-lg w-screen ">
         {/* logo */}
         <Link href="/" className="">
           <Logo/>
         </Link>
-        <div className="lg:pt-4 lg:pl-4">
+        <div className="lg:pt-4 lg:px-8">
           {isLargeScreen ? (
             <WindowNavBtnList/>
           ) : (

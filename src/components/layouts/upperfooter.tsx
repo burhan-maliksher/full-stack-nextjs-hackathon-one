@@ -7,7 +7,7 @@ import Link from 'next/link';
 
 export default function UpperFooter() {
   return (
-    <footer className='flex flex-col space-y-10 lg:flex-row lg:space-y-0 lg:justify-around   w-full  mb-20'>
+    <footer className='flex flex-col space-y-10 lg:flex-row lg:space-y-0 lg:justify-around  w-full xl:max-w-screen-xl mb-20'>
       <div className='flex flex-col space-y-8 w-64 md:w-80 lg:w-96 '>
         <Image src={'/Logo.png'} alt={"logo"} width={200} height={0} className=""/>
         <p className='font-light flex '>

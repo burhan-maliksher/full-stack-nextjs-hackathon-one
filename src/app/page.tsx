@@ -1,11 +1,9 @@
-import Image from 'next/image'
+import HeroSection from '@/components/home/herosection'
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-10">
-      <div className='mt-0'>
-        home page
-      </div>
+    <main className="flex mx-auto max-w-screen-xl  mt-4 flex-col">
+        <HeroSection/>
     </main>
   )
 }
