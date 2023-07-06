@@ -10,6 +10,9 @@ import Cart from "../code/cart"
 import Searchbar from "../code/searchbar"
 import Logo from "../code/logo"
 import Link from "next/link"
+import MenuBtn from "../code/menubtn"
+import NavBtn from "../code/navbtnList"
+import NavBtnList from "../code/navbtnList"
 
 export default function Nav() {
   return (
@@ -20,20 +23,11 @@ export default function Nav() {
         <Link href="/" >
           <Logo/>
         </Link>
-       
+        
+        <MenuBtn/>
+
         {/* links */}
-        <Link href="/female" >
-          <LinkBtn name="Female"  />
-        </Link>
-        <Link href="/male" >
-          <LinkBtn name="Male" />
-        </Link>
-        <Link href="/kids" >
-          <LinkBtn name="Kids" />
-        </Link>
-        <Link href="/allProducts" >
-          <LinkBtn name="All Products" />
-        </Link>
+        <NavBtnList/>
         
         {/*search bar  */}
           <Searchbar/>

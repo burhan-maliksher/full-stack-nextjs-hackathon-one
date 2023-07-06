@@ -1,3 +1,4 @@
+// "use client"
 import {
     NavigationMenuItem,
     NavigationMenuLink,
@@ -12,8 +13,10 @@ export default function LinkBtn(props:linkProp ) {
   return (
     <div>
       <NavigationMenuItem className="flex gap-10   ">  
-            <NavigationMenuLink className={navigationMenuTriggerStyle()}>{props.name}</NavigationMenuLink>                    
-        </NavigationMenuItem>
+            <NavigationMenuLink className={navigationMenuTriggerStyle()}>
+                {props.name}
+            </NavigationMenuLink>                    
+      </NavigationMenuItem>
     </div>
   )
 }
