@@ -8,7 +8,7 @@ export default function Searchbar() {
           <div className="flex items-center">
             <CiSearch/>
           </div>
-          <input type="text" className=" pl-1 text-sm w-80" placeholder="What your are looking for?" />
+          <input type="text" className=" pl-1 text-sm lg:w-60 xl:w-80" placeholder="What your are looking for?" />
         </div>
     </div>
   )

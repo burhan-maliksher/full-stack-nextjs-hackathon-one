@@ -12,7 +12,7 @@ type linkProp={
 export default function LinkBtn(props:linkProp ) {
   return (
     <div>
-      <NavigationMenuItem className="flex gap-10   ">  
+      <NavigationMenuItem className="flex gap-6   ">  
             <NavigationMenuLink className={navigationMenuTriggerStyle()}>
                 {props.name}
             </NavigationMenuLink>                    
