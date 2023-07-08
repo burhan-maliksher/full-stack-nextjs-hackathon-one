@@ -1,3 +1,4 @@
+import About from '@/components/home/about'
 import HeroSection from '@/components/home/herosection'
 import ProductSection from '@/components/home/productsection'
 import PromotionSection from '@/components/home/promotionsection'
@@ -8,6 +9,7 @@ export default function Home() {
         <HeroSection/>
         <PromotionSection/>
         <ProductSection/>
+        <About/>
     </main>
   )
 }
