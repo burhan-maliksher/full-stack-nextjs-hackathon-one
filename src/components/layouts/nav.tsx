@@ -33,7 +33,7 @@ export default function Nav() {
     };
   }, [isLargeScreen]);
   return (
-    <div className="mt-2 ">
+    <div className="mt-2 " >
       <NavigationMenu>
         <NavigationMenuList className="flex justify-between px-6 lg:px-0 lg:pl-6     text-lg w-screen ">
         {/* logo */}

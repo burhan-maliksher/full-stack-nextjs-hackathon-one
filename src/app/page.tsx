@@ -1,4 +1,5 @@
 import HeroSection from '@/components/home/herosection'
+import ProductSection from '@/components/home/productsection'
 import PromotionSection from '@/components/home/promotionsection'
 
 export default function Home() {
@@ -6,6 +7,7 @@ export default function Home() {
     <main className="flex mx-auto max-w-screen-xl space-y-20 mt-4 flex-col">
         <HeroSection/>
         <PromotionSection/>
+        <ProductSection/>
     </main>
   )
 }
