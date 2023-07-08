@@ -35,7 +35,7 @@ export default function Nav() {
   return (
     <div className="mt-2 ">
       <NavigationMenu>
-        <NavigationMenuList className="flex justify-between px-6 lg:pl-10     text-lg w-screen ">
+        <NavigationMenuList className="flex justify-between px-6 lg:px-0 lg:pl-6     text-lg w-screen ">
         {/* logo */}
         <Link href="/" className="">
           <Logo/>
@@ -57,15 +57,17 @@ export default function Nav() {
 
 function WindowNavBtnList() {
   return (
-    <div className="flex lg:space-x-4 xl:space-x-9 lg:text-sm xl:text-lg">
-        {/* links */}
-        <NavBtnList/>
-  
-        {/*search bar  */}
-        <Searchbar/>
-        
+    <div className="flex  xl:w-[75vw] lg:justify-between   lg:space-x-4 lg:text-sm xl:text-lg">
+        <div className="flex  xl:w-[52vw] xl:justify-between">
+          {/* links */}
+          <NavBtnList/>
+            
+          {/*search bar  */}
+          <Searchbar/>
+          
+        </div>        
         {/* cart icon */}
-        <Link href="/cartItems" >
+        <Link href="/cartItems" className=" " >
           <Cart/>
         </Link>
     </div>
