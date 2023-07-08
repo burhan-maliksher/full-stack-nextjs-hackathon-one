@@ -1,5 +1,6 @@
 import About from '@/components/home/about'
 import HeroSection from '@/components/home/herosection'
+import NewsLetter from '@/components/home/newsletter'
 import ProductSection from '@/components/home/productsection'
 import PromotionSection from '@/components/home/promotionsection'
 
@@ -10,6 +11,7 @@ export default function Home() {
         <PromotionSection/>
         <ProductSection/>
         <About/>
+        <NewsLetter/>
     </main>
   )
 }
