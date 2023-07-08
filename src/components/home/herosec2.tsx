@@ -4,7 +4,7 @@ import React from 'react'
 export default function HeroSec2() {
   return (
     <div className='hidden lg:flex relative min-w-0'>
-        <div className='flex items-center  max-w-[600p] '>
+        <div className='flex items-center   '>
             <div className='bg-orange-100  rounded-full aspect-square object-none w-full  absolute -z-10 '></div>
         </div>
 

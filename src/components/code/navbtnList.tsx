@@ -5,7 +5,7 @@ import Link from "next/link"
 
 export default function NavBtnList() {
   return (
-    <>
+    <div className="flex ">
         {/* links */}
         <Link href="/female" >
           <LinkBtn name="Female"  />        
@@ -21,6 +21,6 @@ export default function NavBtnList() {
         </Link>         
         
       
-    </>
+    </div>
   )
 }
