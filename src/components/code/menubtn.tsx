@@ -11,6 +11,8 @@ import { RiMenu3Fill } from "react-icons/ri";
 import Link from "next/link";
 import Cart from "./cart";
 import Logo from "./logo";
+import React from 'react'
+
 
 export default function MenuBtn() {
   return (
@@ -25,7 +27,7 @@ export default function MenuBtn() {
               {/* brand logo */}
               <Logo/>
             </DialogTitle>
-            <DialogDescription className="flex flex-col justify-center  space-y-2 h-full item items-center ">
+            <DialogDescription className="flex flex-col  justify-center  space-y-2 h-full item items-center ">
               
               {/* cart icon */}
               <Link href="/cartItems" className="mb-4">                  
