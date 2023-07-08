@@ -11,7 +11,7 @@ export default function About() {
           Unique and Authentic Vintage Designer Jewellery
         </h2>
       </div>  
-      <div className='grid grid-cols-1 lg:grid-cols-2 lg:gap-9 pt-4 '>
+      <div className='grid grid-cols-1 xl:grid-cols-2 lg:gap-9 pt-4 '>
         <AboutSec1/>
         <AboutSec2/>
       </div>
