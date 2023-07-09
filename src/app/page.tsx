@@ -3,8 +3,18 @@ import HeroSection from '@/components/home/herosection'
 import NewsLetter from '@/components/home/newsletter'
 import ProductSection from '@/components/home/productsection'
 import PromotionSection from '@/components/home/promotionsection'
+import { client } from '@/lib/sanityClient'
 
-export default function Home() {
+export const getProductData=async()=>{
+  const res =await client.fetch("*[_type=='product']")
+  return res
+}
+
+
+export default async function Home() {
+ const data =await getProductData()
+  console.log(data);
+  
   return (
     <main className="flex mx-auto max-w-screen-xl space-y-20 mt-4 flex-col">
         <HeroSection/>
