@@ -9,9 +9,20 @@ export default {
       title: "Name",
     },
     {
-      name: "discription",
+      name: "producttype",
       type: "string",
-      title: "Description",
+      title: "Product Type",
+    },
+    {
+      name: "productdetail",
+      type: "string",
+      title: "Product Detail",
+    },
+    {
+      name: "productcare",
+      title: "Product Care",
+      type: "array",
+      of: [{ type: "string" }],
     },
     {
       name: "size",
