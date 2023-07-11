@@ -1,79 +1,39 @@
-import { client } from '@/lib/sanityClient'
 // "use client"
-// import { client } from '@/lib/sanityclient';
-// import React, { useEffect, useState } from 'react';
+import { client } from '@/lib/sanityClient'
+import Image from 'next/image';
+import { urlForImage } from '../../../../../sanity/lib/image';
 
 type IProduct = {
   id: string;
   name: string;
   producttype:string;
   price:number
-  // image: object;
+  image: any;
 };
 
 const getProductData = async (): Promise<IProduct[]> => {
-  const res = await client.fetch<IProduct[]>('*[_type=="product"]{_id,name,producttype,price}');
+  const res = await client.fetch<IProduct[]>('*[_type=="product"]{_id,name,producttype,price,image[0]}');
   return res;
 };
 
 export default async function Female() {
-  // const [products, setProducts] = useState<IProduct[]>([]);
 
-  // useEffect(() => {
-    // const fetchData = async () => {
-      // try {
-        const data = await getProductData();
-        // setProducts(data);
-      // } catch (error) {
-        // console.error(error);
-      // }
-    // };
-
-    // fetchData();
-  // }, []);
-
+  const data = await getProductData();
+        
   return (
-    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 w-full gap-x-2 gap-y-4'>
+
+    <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  pb-14 md:pb-20 xl:grid-cols-4 w-full gap-x-8 gap-y-16'>
       {data.map((item) => (
         <>
-          <div>
-            <h1 key={item.id}>{item.name}</h1>
+          <div className='flex flex-col justify-center'>
+            {/* <Image src={urlForImage(item.image).width(200).url()} alt='product' className='' /> */}
+            <img src={urlForImage(item.image).width(250).url()} />
+            <h1 key={item.id} className='font-bold'>{item.name}</h1>
             <h2 key={item.id}>{item.producttype}</h2>
-            <h2 key={item.id}>{item.price}</h2>
+            <h2 key={item.id} className='font-bold text-lg'>${item.price}</h2>
           </div>
         </>
       ))}
     </div>
   );
 }
-// import { client } from '@/lib/sanityClient'
-// import React from 'react'
-
-// export const getProductData=async()=>{
-//   const res =await client.fetch("*[_type=='product']{name,price}")
-//   return res
-// }
-
-// type IProduct={
-//   // _id:string,
-//   name:string,
-//   // type:string,
-//   price:number,
-//   // image:object
-// }
-
-// export default async function Female() {
-//   const data:IProduct[] =await getProductData()
-//   console.log(data);
-  
-//   {
-//     data.map((item)=>{
-//       <h1>{item.name}</h1>
-//     })
-//    }
-//   return (
-//     <div>
-//       {data.map}
-//     </div>
-//   )
-// }
