@@ -39,8 +39,7 @@ export default async function Female() {
       {data.map((item) => (
         <>
           <div className='flex flex-col justify-center'>
-            {/* <Image src={urlForImage(item.image).width(200).url()} alt='product' className='' /> */}
-            <img src={urlForImage(item.image).width(250).url()} />
+            <Image src={urlForImage(item.image).width(200).url()} alt='product' width={300} height={300} className='w-auto h-auto' />
             <h1 key={item.id} className='font-bold'>{item.name}</h1>
             <h2 key={item.id}>{item.producttype}</h2>
             <h2 key={item.id} className='font-bold text-lg'>${item.price}</h2>
