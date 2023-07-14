@@ -13,7 +13,19 @@ type IProduct = {
 };
 
 const getProductData = async (): Promise<IProduct[]> => {
-  const res = await client.fetch<IProduct[]>('*[_type=="product"]{_id,name,producttype,price,image[0]}');
+  // const res = await client.fetch<IProduct[]>('*[_type=="product"]{_id,name,producttype,price,image[0]}');
+  const res = await client.fetch<IProduct[]>(`*[_type=="product" && productcategory->categoryname=="Female"]
+            {
+              _id,
+              name,
+              producttype,
+              price, 
+              image[0],
+              productcategory->{
+                categoryname
+              }
+            }
+        `);
   return res;
 };
 
