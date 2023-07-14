@@ -16,22 +16,23 @@ import { useEffect, useState } from "react"
 export default function Nav() {
   const [isLargeScreen, setIsLargeScreen] = useState(false);
 
-  useEffect(() => {
-    const handleResize = () => {
-      setIsLargeScreen(window.innerWidth >= 1024);
-    };
+  const handleResize = () => {
+    setIsLargeScreen(window.innerWidth >= 1024);
+    
+  };
 
-    // Add event listener to track window resize
+  const windowResize=()=>{
     window.addEventListener('resize', handleResize);
 
-    // Initial check for large screen on component mount
-    handleResize();
+  }
 
-    // Clean up event listener on component unmount
-    return () => {
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [isLargeScreen]);
+
+  useEffect(() => {
+    
+    handleResize();
+    
+  }, [windowResize()]);
+
   return (
     <div className="mt-2 " >
       <NavigationMenu>
