@@ -2,13 +2,14 @@
 import { client } from '@/lib/sanityClient'
 import Image from 'next/image';
 import { urlForImage } from '../../../../../sanity/lib/image';
+import { Image as IImage } from 'sanity';
 
 type IProduct = {
   id: string;
   name: string;
   producttype:string;
   price:number
-  image: any;
+  image: IImage;
 };
 
 const getProductData = async (): Promise<IProduct[]> => {
