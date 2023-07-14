@@ -22,10 +22,8 @@ export default function Nav() {
   };
 
   const windowResize=()=>{
-    // condition added to resolve an error message as window object not work on server side redering
-    if (typeof window !== 'undefined') {
-      window.addEventListener('resize', handleResize);
-    }
+    
+    window.addEventListener('resize', handleResize);
 
   }
 
