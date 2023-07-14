@@ -6,7 +6,7 @@ export default defineType({
   title: "Category",
   fields: [
     defineField({
-      name: "name",
+      name: "categoryname",
       title: "Category Name",
       type: "string",
     }),
