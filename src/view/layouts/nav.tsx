@@ -21,8 +21,11 @@ export default function Nav() {
   };
 
   const windowResize=()=>{
+    if (typeof window !== 'undefined') {
+      window.addEventListener('resize', handleResize);
+    }
     
-    window.addEventListener('resize', handleResize);
+    // window.addEventListener('resize', handleResize);
 
   }
 
