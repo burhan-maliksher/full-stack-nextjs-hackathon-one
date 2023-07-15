@@ -1,8 +1,4 @@
-function ReplaceDashWithSpace(productName:string):string{
-  const DashedString = productName;
-  const convertedString = DashedString.replace(/-/g, " ");
-  return convertedString
-}
+import ReplaceDashWithSpace from "@/functions/replacedash"
 
 export default function Product({ params }: {
     params: { products: string },

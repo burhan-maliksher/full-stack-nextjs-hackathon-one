@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { urlForImage } from '../../../../../sanity/lib/image';
 import { IProduct } from '@/types/types';
 import Link from 'next/link';
+import ReplaceSpaceWithDash from '@/functions/replacespace';
 
 const getProductDataFromSanity = async (): Promise<IProduct[]> => {
   try {
@@ -14,12 +15,6 @@ const getProductDataFromSanity = async (): Promise<IProduct[]> => {
   }
 
 };
-
-function ReplaceSpaceWithDash(productName:string):string{
-  const originalString = productName;  
-  const convertedString = originalString.replace(/\s+/g, "-");
-  return convertedString
-}
 
 export default async function AllProducts() {
 
