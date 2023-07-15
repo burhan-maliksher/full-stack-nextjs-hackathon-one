@@ -3,6 +3,8 @@ import { client } from "@/lib/sanityClient";
 import { IProductDynamic } from "@/types/types";
 import Image from "next/image";
 import { urlForImage } from "../../../../../../sanity/lib/image";
+import { FiShoppingCart } from "react-icons/fi";
+import Link from "next/link";
 
 const getProductDataFromSanity = async (name:string): Promise<IProductDynamic[]> => {
   try {
@@ -70,9 +72,12 @@ return (
                     <p className="pt-2">1</p>
                     <p className="bg-gray-100 rounded-full text-4xl px-2 font-extralight">+</p>
                   </div>
-                  <div className="mt-8 flex justify-evenly md:justify-start md:space-x-4">
-                    <button>add to cart</button>
-                    <h4 key={item.id} className='font-bold text-2xl'>${item.price}.00</h4>
+                  <div className="mt-8 flex justify-around md:justify-start md:space-x-4">
+                    <Link href={""} className="px-4 py-2 font-bold flex  bg-black text-white">
+                      <FiShoppingCart className='pr-2 w-8 h-8'/>
+                      <p className="pt-1">Add to Cart</p>
+                    </Link>
+                    <h4 key={item.id} className='font-bold pt-2 text-2xl'>${item.price}.00</h4>
                   </div>
                 </div> 
               </div>
