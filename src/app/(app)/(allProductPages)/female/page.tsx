@@ -2,6 +2,8 @@ import { client } from '@/lib/sanityClient'
 import Image from 'next/image';
 import { urlForImage } from '../../../../../sanity/lib/image';
 import { IProduct } from '@/types/types';
+import Link from 'next/link';
+import ReplaceSpaceWithDash from '@/functions/replacespace';
 
 const getProductDataFromSanity = async (): Promise<IProduct[] > => {
   try {
@@ -36,7 +38,9 @@ export default async function Female() {
           data.length!==0?data.map((item) => (
                 <>
                   <div className='flex flex-col justify-center'>
-                    <Image src={urlForImage(item.image).width(200).url()} alt='product' width={300} height={300} className='w-auto h-auto' />
+                    <Link href={`/products/${ReplaceSpaceWithDash(item.name)}`} >                      
+                      <Image src={urlForImage(item.image).width(200).url()} alt='product' width={300} height={300} className='w-full h-auto' />
+                    </Link>
                     <h1 key={item.id} className='font-bold'>{item.name}</h1>
                     <h2 key={item.id}>{item.producttype}</h2>
                     <h2 key={item.id} className='font-bold text-lg'>${item.price}</h2>
