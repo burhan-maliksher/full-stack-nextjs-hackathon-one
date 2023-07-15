@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { urlForImage } from '../../../../../sanity/lib/image';
 import { IProduct } from '@/types/types';
 import Link from 'next/link';
-import ReplaceSpaceWithDash from '@/functions/replacespace';
+import ReplaceSpaceWithDash from '@/components/functions/replacespace';
 
 const getProductDataFromSanity = async (): Promise<IProduct[] > => {
   try {

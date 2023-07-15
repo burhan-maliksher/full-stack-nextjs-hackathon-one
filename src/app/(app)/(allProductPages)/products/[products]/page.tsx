@@ -1,13 +1,13 @@
-"use client"
-import ReplaceDashWithSpace from "@/functions/replacedash"
+// "use client"
+import ReplaceDashWithSpace from "@/components/functions/replacedash"
 import { client } from "@/lib/sanityClient";
 import { IProductDynamic } from "@/types/types";
-import Image from "next/image";
-import { urlForImage } from "../../../../../../sanity/lib/image";
 import { FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
-import { useState } from "react";
+import ProductAllImage from "@/components/functions/productallimage";
+import ProductQuantity from "@/components/functions/productquantity";
 
+// fetching product data from sanity
 const getProductDataFromSanity = async (name:string): Promise<IProductDynamic[]> => {
   try {
     const res = await client.fetch<IProductDynamic[]>(`*[_type=="product" && name=="${name}"]
@@ -30,77 +30,60 @@ const getProductDataFromSanity = async (name:string): Promise<IProductDynamic[]>
 
 };
 
+// displaying product data dynamically
 export default async function Product({ params }: {
     params: { products: string },
   })  {
-    const [showImage,setShowImage]=useState(0)
-
+    
     const ProductName=ReplaceDashWithSpace(params.products)
     const data = await getProductDataFromSanity(ProductName)
     
-    function handleClick(index:number){
-      setShowImage(index);
-      
-    }
-
+    
 return (
   <>
   <div className='flex flex-col pb-14 md:pb-20 xl:grid-cols-4 w-full gap-x-8 gap-y-16'>
     {
+      // 
       data.length!==0?data.map((item) => (
           <>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-                <div className="grid grid-cols-6  space-x-4">
-                  <div className="col-span-1 flex flex-col space-y-2 cursor-pointer">
-                    {item.image.map((image,index)=>(
-                      <Image key={index} src={urlForImage(image).width(200).url()} alt='product' onMouseOver={()=>handleClick(index)} width={300} height={300} className='w-full h-auto' />
-
+             {/* displaying all images of a product */}
+              <ProductAllImage items={item.image}/>
+              
+              <div className="flex flex-col justify-center"> 
+                <div>
+                  <h1 key={item.id} className='font-normal text-3xl'>{item.name}</h1>
+                  <h2 key={item.id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
+                </div>
+                <div>
+                  <h5 className="text-sm font-extrabold text-gray-700 pt-8 pb-2">SELECT SIZE</h5>
+                  <div className="flex space-x-4 md:space-x-8 ">
+                    {item.size.map((item,index)=>(
+                      <p key={index} className=" p-2 w-full md:w-fit text-gray-500 font-bold">{item}</p>
                     ))}
                   </div>
-                  <div className="col-span-5 ">
-                    <Image src={urlForImage(item.image[showImage]).width(200).url()} alt='product' width={300} height={300} className='w-full h-auto' />
-                  </div>
                 </div>
-                <div className="flex flex-col justify-center">
-                  <div>
-                    <h1 key={item.id} className='font-normal text-3xl'>{item.name}</h1>
-                    <h2 key={item.id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
-                  </div>
-                  <div>
-                    <h5 className="text-sm font-extrabold text-gray-700 pt-8 pb-2">SELECT SIZE</h5>
-                    <div className="flex space-x-4 md:space-x-8 ">
-                      {item.size.map((item,index)=>(
-                        <p key={index} className=" p-2 w-full md:w-fit text-gray-500 font-bold">{item}</p>
-                      ))}
-                    </div>
-                  </div>
-                  <div className="mt-8 flex space-x-6 ">
-                    <h4 className="text-lg font-semibold pt-2">Quantity:</h4>    
-                    <p className="bg-gray-100 rounded-full text-4xl px-3  font-extralight"> - </p>
-                    <p className="pt-2">1</p>
-                    <p className="bg-gray-100 rounded-full text-4xl px-2 font-extralight">+</p>
-                  </div>
-                  <div className="mt-8 flex justify-around md:justify-start md:space-x-4">
-                    <Link href={""} className="px-4 py-2 font-bold flex  bg-black text-white">
-                      <FiShoppingCart className='pr-2 w-8 h-8'/>
-                      <p className="pt-1">Add to Cart</p>
-                    </Link>
-                    <h4 key={item.id} className='font-bold pt-2 text-2xl'>${item.price}.00</h4>
-                  </div>
-                </div> 
-              </div>
-              <div>
-              
+                {/* add quantity of product */}
+                <ProductQuantity/>
+                {/* add to card  */}
+                <div className="mt-8 flex justify-around md:justify-start md:space-x-4">
+                  <Link href={""} className="px-4 py-2 font-bold flex  bg-black text-white">
+                    <FiShoppingCart className='pr-2 w-8 h-8'/>
+                    <p className="pt-1">Add to Cart</p>
+                  </Link>
+                  <h4 key={item.id} className='font-bold pt-2 text-2xl'>${item.price}.00</h4>
+                </div>
+              </div> 
+            </div>
+            {/* displays product details  */}
+            <div>  
               <div className="mt-24 mb-16">
                 <h2 className="border-b-2 border-gray-300 text-3xl font-semibold pb-4">Product Information</h2>
-                
                 <div className="flex flex-col ">
-                  
                   <div className="flex flex-col md:flex-row md:space-x-8">
                     <h3 className=" text-gray-500 text-xl font-semibold pt-4 md:w-96  ">PRODUCT DETAILS</h3>
                     <p key={item.id} className='font-light text-justify md:text-left  md:w-fit tracking-wide text-lg pt-4 '>{item.productdetail}</p>
                   </div>
-
                   <div className="flex flex-col md:flex-row md:space-x-8">
                     <h3 className=" text-gray-500 text-lg  font-semibold pt-8 md:w-64 lg:w-72">PRODUCT CARE</h3>
                     <div> 
@@ -109,11 +92,8 @@ return (
                       ))}
                     </div>
                   </div>
-
                 </div> 
-              
               </div>
-
             </div>
           </>
         )):<div className=' hidden '></div>
