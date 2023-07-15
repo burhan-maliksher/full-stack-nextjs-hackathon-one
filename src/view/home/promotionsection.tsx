@@ -1,6 +1,5 @@
-import React from 'react'
-import PromotionSec1 from './promotionsec1'
-import PromotionSec2 from './promotionsec2'
+import PromotionSec1 from '../../components/home/promotionsec1'
+import PromotionSec2 from '../../components/home/promotionsec2'
 
 export default function PromotionSection() {
   return (

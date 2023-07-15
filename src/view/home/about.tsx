@@ -1,6 +1,5 @@
-import React from 'react'
-import AboutSec2 from './aboutsec2'
-import AboutSec1 from './aboutsec1'
+import AboutSec2 from '../../components/home/aboutsec2'
+import AboutSec1 from '../../components/home/aboutsec1'
 
 export default function About() {
   return (

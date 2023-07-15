@@ -1,16 +1,15 @@
 "use client"
 
-import * as React from "react"
 import {
   NavigationMenu,
   NavigationMenuList,
 } from "@/components/ui/navigation-menu"
-import Cart from "../code/cart"
-import Searchbar from "../code/searchbar"
-import Logo from "../code/logo"
+import Cart from "../../components/code/cart"
+import Searchbar from "../../components/code/searchbar"
+import Logo from "../../components/code/logo"
 import Link from "next/link"
-import MenuBtn from "../code/menubtn"
-import NavBtnList from "../code/navbtnList"
+import MenuBtn from "../../components/code/menubtn"
+import NavBtnList from "../../components/code/navbtnList"
 import { useEffect, useState } from "react"
 
 export default function Nav() {

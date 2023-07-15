@@ -1,7 +1,5 @@
-// "use client"
-import React from 'react'
-import HeroSec1 from './herosec1'
-import HeroSec2 from './herosec2'
+import HeroSec1 from '../../components/home/herosec1'
+import HeroSec2 from '../../components/home/herosec2'
 
 export default function HeroSection() {
   return (

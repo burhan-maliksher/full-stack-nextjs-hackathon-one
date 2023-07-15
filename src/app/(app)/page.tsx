@@ -1,8 +1,8 @@
-import About from '@/components/home/about'
-import HeroSection from '@/components/home/herosection'
-import NewsLetter from '@/components/home/newsletter'
-import ProductSection from '@/components/home/productsection'
-import PromotionSection from '@/components/home/promotionsection'
+import About from '@/view/home/about'
+import HeroSection from '@/view/home/herosection'
+import NewsLetter from '@/view/home/newsletter'
+import ProductSection from '@/view/home/productsection'
+import PromotionSection from '@/view/home/promotionsection'
 
 export default async function Home() {
 
