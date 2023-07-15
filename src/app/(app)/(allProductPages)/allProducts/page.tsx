@@ -33,7 +33,7 @@ export default async function AllProducts() {
                 <>
                   <div className='flex flex-col justify-center'>
                     <Link href={`/products/${ReplaceSpaceWithDash(item.name)}`} >                      
-                      <Image src={urlForImage(item.image).width(200).url()} alt='product' width={300} height={300} className='w-auto h-auto' />
+                      <Image src={urlForImage(item.image).width(200).url()} alt='product' width={300} height={300} className='w-full h-auto' />
                     </Link>
                     <h1 key={item.id} className='font-bold'>{item.name}</h1>
                     <h2 key={item.id}>{item.producttype}</h2>
