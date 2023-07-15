@@ -1,3 +1,4 @@
+"use client"
 import ReplaceDashWithSpace from "@/functions/replacedash"
 import { client } from "@/lib/sanityClient";
 import { IProductDynamic } from "@/types/types";
@@ -5,6 +6,7 @@ import Image from "next/image";
 import { urlForImage } from "../../../../../../sanity/lib/image";
 import { FiShoppingCart } from "react-icons/fi";
 import Link from "next/link";
+import { useState } from "react";
 
 const getProductDataFromSanity = async (name:string): Promise<IProductDynamic[]> => {
   try {
@@ -31,10 +33,16 @@ const getProductDataFromSanity = async (name:string): Promise<IProductDynamic[]>
 export default async function Product({ params }: {
     params: { products: string },
   })  {
-    
+    const [showImage,setShowImage]=useState(0)
+
     const ProductName=ReplaceDashWithSpace(params.products)
     const data = await getProductDataFromSanity(ProductName)
     
+    function handleClick(index:number){
+      setShowImage(index);
+      
+    }
+
 return (
   <>
   <div className='flex flex-col pb-14 md:pb-20 xl:grid-cols-4 w-full gap-x-8 gap-y-16'>
@@ -43,14 +51,14 @@ return (
           <>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
                 <div className="grid grid-cols-6  space-x-4">
-                  <div className="col-span-1 flex flex-col space-y-2">
+                  <div className="col-span-1 flex flex-col space-y-2 cursor-pointer">
                     {item.image.map((image,index)=>(
-                      <Image key={index} src={urlForImage(image).width(200).url()} alt='product' width={300} height={300} className='w-full h-auto' />
+                      <Image key={index} src={urlForImage(image).width(200).url()} alt='product' onMouseOver={()=>handleClick(index)} width={300} height={300} className='w-full h-auto' />
 
                     ))}
                   </div>
                   <div className="col-span-5 ">
-                    <Image src={urlForImage(item.image[0]).width(200).url()} alt='product' width={300} height={300} className='w-full h-auto' />
+                    <Image src={urlForImage(item.image[showImage]).width(200).url()} alt='product' width={300} height={300} className='w-full h-auto' />
                   </div>
                 </div>
                 <div className="flex flex-col justify-center">
