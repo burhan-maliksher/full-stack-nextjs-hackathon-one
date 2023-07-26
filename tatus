@@ -1,0 +1,213 @@
+[33mcommit fb80b837696092d5fe3cdd3167c05724e8efc92f[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Wed Jul 26 09:24:49 2023 +0500
+
+    merge conflict
+
+[33mcommit 8af7693c184da98fae72293dff16f5dcda79b33a[m
+Merge: 98833bd 6936138
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Wed Jul 26 09:20:59 2023 +0500
+
+    Merge branch 'reactslicktest' into master
+
+[33mcommit 98833bd55f3f8e12d3e07b6d0cd98d2a2c1ac6c3[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Wed Jul 26 09:15:33 2023 +0500
+
+    unknow file
+
+[33mcommit 69361382ff56c7b5f51c8052ce94eefc31d69d42[m[33m ([m[1;31morigin/reactslicktest[m[33m, [m[1;32mreactslicktest[m[33m)[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Wed Jul 26 08:57:01 2023 +0500
+
+    product slide fully resopensive/custom viewports added
+
+[33mcommit bcb65a4ff96bc702fe19d5943c290a878f84cad0[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Tue Jul 25 12:48:15 2023 +0500
+
+    slide responsive incomplete yets
+
+[33mcommit a5995d6c49720c9bcd0d5ded32ae733be28ce0db[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Tue Jul 25 10:32:45 2023 +0500
+
+    successfully added product slides
+
+[33mcommit 7b9ee4827d3f3c259a5855629512fe9e7b3f9fc5[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Tue Jul 25 07:19:46 2023 +0500
+
+    unable to use react silck for slide properly
+
+[33mcommit 816b7e886376091294f6092ea05daba6026bef81[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sun Jul 16 10:41:35 2023 +0500
+
+    react slick configured
+
+[33mcommit 02d31d1436cea6c19f1c6b4cba464be76f61761c[m[33m ([m[1;31morigin/class[m[33m, [m[1;32mclass[m[33m)[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sun Jul 16 09:52:42 2023 +0500
+
+    text watermark added to product dynamic page
+
+[33mcommit 9df9b7921d24e1a605da44be349c05c94dd54e95[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sun Jul 16 09:17:00 2023 +0500
+
+    nav responsive using tailwind/window object removed/cli problems clear
+
+[33mcommit 17974806649dbac11ece6a087c0d214000ca132e[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sun Jul 16 07:36:48 2023 +0500
+
+    webpack typeerror fixed,window object fuction remaned to pascal to aviod fast redreh issue
+
+[33mcommit b3ed217bcb3caea080feb6dabd0a9ca3d9b5069b[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 21:15:44 2023 +0500
+
+    fixing image not displaying issue, images moved to public folder again
+
+[33mcommit 482a7f0714d0c4b5dff86fa93aeda1a7af0db298[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 21:06:39 2023 +0500
+
+    testing window object issuse fixed or not
+
+[33mcommit a2984fcda404b7269f37908309c110f385f2010e[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 20:44:31 2023 +0500
+
+    whole page rerender issue on one change fixed by shifting image/quanitity components
+
+[33mcommit 3e6f8164ce9abfacd546ddfa7c35e5cde682bef4[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 17:48:48 2023 +0500
+
+    on mouseover added to view diiferent images
+
+[33mcommit 5978df27ae4037a70baa82e52fc6f3338773fe12[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 17:15:28 2023 +0500
+
+    css added for add to card at dynamic page
+
+[33mcommit 6214e783349ddcf9f306944a942ac876d6630de1[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 17:01:32 2023 +0500
+
+    product dynamic page css done
+
+[33mcommit 227c3c586f68f7034898539e8384124368aa77dd[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 12:13:29 2023 +0500
+
+    mobile css done for product dynamic page/fetched data from sanity
+
+[33mcommit 8311211780bd6e28557e06c54cfb049692aca8c7[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 10:06:39 2023 +0500
+
+    dynamic product routing added to female/male/kids too
+
+[33mcommit 611931c8c477742ed3dbbfe12bf37b8ca35e4ef1[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 09:56:07 2023 +0500
+
+    functions moved to functions folder
+
+[33mcommit 8f57c0b5457d831126838e90e27a28505e042a25[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 09:46:20 2023 +0500
+
+    products image size issue fixed
+
+[33mcommit 9fdb0d8474a87158f9366670e0ad2aa5988de92a[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Sat Jul 15 09:44:51 2023 +0500
+
+    dynamic products page added/component files rearranged in other folders
+
+[33mcommit 09669aae916865a321b7944fdab49685c2155c18[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 19:55:50 2023 +0500
+
+    rollbacked previous changes in window object
+
+[33mcommit b51d2ffadefa797ddffae36f008f238bbb42e467[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 18:54:41 2023 +0500
+
+    window resize object error fixed
+
+[33mcommit 7c873e49352a450ad768ff373b22ec5ccda7ac47[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 18:27:06 2023 +0500
+
+    navbar late resizing issuse fixed
+
+[33mcommit c8b772c320e264e8e875c18f8f18cddced116497[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 16:27:33 2023 +0500
+
+    product not found massege added to all product pages
+
+[33mcommit 015023a32eb826a09f5bf57033913106b53a287c[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 12:12:28 2023 +0500
+
+    domain added in next config to render image from sanity in next Image component/ issuse fixed
+
+[33mcommit bb9c275db1fcc7d38432ebc0a9306a9bbeadb46e[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 11:56:28 2023 +0500
+
+    only female category displayed/groq query fixed
+
+[33mcommit 8761a334359a039d68151011013ac2b7b30d1155[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 11:19:44 2023 +0500
+
+    image from sanity type added
+
+[33mcommit bb947282ab5ee667b3b29bdea203acefd3a4051a[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 11:07:43 2023 +0500
+
+    category schema linked with product schema
+
+[33mcommit 529f9215c5a21eca12a3fcd43421a9487fbb6a46[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 10:53:29 2023 +0500
+
+    typescript/intelisence added for schema
+
+[33mcommit 732db77273645e88513a476b845520b42b04df6d[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Fri Jul 14 10:46:57 2023 +0500
+
+    category schema added
+
+[33mcommit 403d5875136ad253d68e9a243f80e9ce902be584[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Tue Jul 11 16:26:07 2023 +0500
+
+    successfully fetched products data from sanity
+
+[33mcommit 1d12d02f3d2822f010c3f8165ecb573c24f62f4b[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Tue Jul 11 14:19:29 2023 +0500
+
+    loading page added
+
+[33mcommit 2c1b1bc401fe4ae0ef4c876b035cbb3b86ee6d45[m
+Author: Muhammad Burhan <66227807+burhan-maliksher@users.noreply.github.com>
+Date:   Tue Jul 11 14:18:31 2023 +0500
+
+    product pages grouped/products spacing adjusted
+
+[33mcommit 7140c2a8dd59fab766918ee5d0991ac07e63a416[m
+Author: Muhammad Burh
