@@ -1,3 +1,4 @@
+"use client"
 import ProductSlide from "@/components/home/productslide";
 
 export default function ProductSection() {

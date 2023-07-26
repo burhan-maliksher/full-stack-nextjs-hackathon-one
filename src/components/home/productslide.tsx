@@ -1,10 +1,10 @@
-"use client"
+// "use client"
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import React, { CSSProperties, useEffect, useState } from "react";
-import { client } from '@/lib/sanityClient'
+// import { client } from '@/lib/sanityClient'
 import Image from 'next/image';
 import { IProduct } from '@/types/types';
 import Link from 'next/link';
