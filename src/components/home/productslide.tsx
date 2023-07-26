@@ -77,7 +77,7 @@ export default  function SimpleSlider():JSX.Element {
             }
           },
           {
-            breakpoint: 300,
+            breakpoint: 425,
             settings: {
               slidesToShow: 1,
               dots: false,
@@ -85,7 +85,28 @@ export default  function SimpleSlider():JSX.Element {
               speed: 500,
               slidesToScroll: 1,
             }
-          }
+          },
+          {
+            breakpoint: 375,
+            settings: {
+              slidesToShow: 1,
+              dots: false,
+              infinite: false,
+              speed: 500,
+              slidesToScroll: 1,
+            }
+          },
+          {
+            breakpoint: 320,
+            settings: {
+              slidesToShow: 1,
+              dots: false,
+              infinite: false,
+              speed: 500,
+              slidesToScroll: 1,
+            }
+          },
+
         ]
       };
       
@@ -94,9 +115,8 @@ export default  function SimpleSlider():JSX.Element {
         <Slider {...settings} >
           {allproduct? allproduct.map((item,index)=>
               <div key={index} className='flex flex-col  text-left hover:scale-105 transition delay-75 bg-gray-50 md:p-8'>
-              {/* // <div key={index} className='flex flex-col  text-left  bg-gray-100 md:pr-8'> */}
                 <Link href={`/products/${ReplaceSpaceWithDash(item.name)}`} >                      
-                  <Image key={index} src={urlForImage(item.image).width(200).url()} alt='product' width={100} height={100} className='w-[300px] lg:w-full h-auto  ' />
+                  <Image key={index} src={urlForImage(item.image).width(200).url()} alt='product' width={100} height={100} className='w-full h-auto  ' />
                 </Link>
                 <h1 key={index} className='font-bold '>{item.name}</h1>
                 <h2 key={index}>{item.producttype}</h2>
