@@ -77,13 +77,8 @@ return (
             </div>
             {/* displays product details  */}
             <div>  
-              <div className="mt-24 mb-16  relative overflow-hidden">
-                  {/* <div className='flex flex-col  '> */}
-                    <p className='absolute -z-10 text-left font-black h-full text-5xl  md:text-7xl  lg:text-8xl tracking-[0.2em] md:tracking-widest  leading-relaxed  text-gray-100'>
-                        Overview
-                    </p>
-                  {/* <div/> */}
-                <h2 className="border-b-2 border-gray-300 text-3xl font-semibold pt-4 lg:pt-8 pb-4">Product Information</h2>
+              <div className="mt-24 mb-16">
+                <h2 className="border-b-2 border-gray-300 text-3xl font-semibold pb-4">Product Information</h2>
                 <div className="flex flex-col ">
                   <div className="flex flex-col md:flex-row md:space-x-8">
                     <h3 className=" text-gray-500 text-xl font-semibold pt-4 md:w-96  ">PRODUCT DETAILS</h3>
