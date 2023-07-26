@@ -1,27 +1,27 @@
-// "use client"
+"use client"
 
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import React, { CSSProperties, useEffect, useState } from "react";
-// import { client } from '@/lib/sanityClient'
+import React, { useEffect, useState } from "react";
+import { client } from '@/lib/sanityClient'
 import Image from 'next/image';
 import { IProduct } from '@/types/types';
 import Link from 'next/link';
 import ReplaceSpaceWithDash from '@/components/functions/replacespace';
 import { urlForImage } from "../../../sanity/lib/image";
-import getProductDataFromSanity from "../functions/fetchsanityproductlist";
+// import getProductDataFromSanity from "../functions/fetchsanityproductlist";
 
-// const getProductDataFromSanity = async (): Promise<IProduct[]> => {
-//   try {
-//     const res = await client.fetch<IProduct[]>('*[_type=="product"]{_id,name,producttype,price,image[0]}');
-//     return res;
-//   } catch (error) {
-//     return []
+const getProductDataFromSanity = async (): Promise<IProduct[]> => {
+  try {
+    const res = await client.fetch<IProduct[]>('*[_type=="product"]{_id,name,producttype,price,image[0]}');
+    return res;
+  } catch (error) {
+    return []
     
-//   }
+  }
 
-// };
+};
 
 function HideArrow(props: {  style: any; }) {
   const { style } = props;
