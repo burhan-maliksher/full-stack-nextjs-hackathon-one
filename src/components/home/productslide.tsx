@@ -32,7 +32,7 @@ function HideArrow(props: {  style: any; }) {
   );
 }
 
-export default  function SimpleSlider():JSX.Element {
+export default   function SimpleSlider():JSX.Element {
   // using state to convert a promise to a valid jsx element
   const [allproduct,setAllProduct]=useState<IProduct[]|null>(null)
 

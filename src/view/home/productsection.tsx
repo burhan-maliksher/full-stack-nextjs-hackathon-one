@@ -1,7 +1,7 @@
 "use client"
 import ProductSlide from "@/components/home/productslide";
 
-export default function ProductSection() {
+export default  async function ProductSection() {
   return (
     <section className=' flex flex-col items-center  space-y-4 text-center w-full '>
       <h3 className='text-blue-600 font-bold '>PRODUCTS</h3>
