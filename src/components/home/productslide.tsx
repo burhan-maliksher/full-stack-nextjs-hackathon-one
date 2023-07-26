@@ -10,17 +10,18 @@ import { IProduct } from '@/types/types';
 import Link from 'next/link';
 import ReplaceSpaceWithDash from '@/components/functions/replacespace';
 import { urlForImage } from "../../../sanity/lib/image";
+import getProductDataFromSanity from "../functions/fetchsanityproductlist";
 
-const getProductDataFromSanity = async (): Promise<IProduct[]> => {
-  try {
-    const res = await client.fetch<IProduct[]>('*[_type=="product"]{_id,name,producttype,price,image[0]}');
-    return res;
-  } catch (error) {
-    return []
+// const getProductDataFromSanity = async (): Promise<IProduct[]> => {
+//   try {
+//     const res = await client.fetch<IProduct[]>('*[_type=="product"]{_id,name,producttype,price,image[0]}');
+//     return res;
+//   } catch (error) {
+//     return []
     
-  }
+//   }
 
-};
+// };
 
 function HideArrow(props: {  style: any; }) {
   const { style } = props;
