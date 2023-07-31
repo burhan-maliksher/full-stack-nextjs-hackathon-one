@@ -1,7 +1,7 @@
 import { db, cartTable } from "@/lib/drizzle";
 import { NextResponse, NextRequest } from "next/server";
 
-export const Get = async (reequest: Request) => {
+export const GET = async (reequest: Request) => {
   //   const client = await db.connect();
   try {
     const res = db.select().from(cartTable);
