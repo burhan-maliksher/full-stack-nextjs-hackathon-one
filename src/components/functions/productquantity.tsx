@@ -1,18 +1,25 @@
 "use client"
 
+import { type } from "os"
 import { useState } from "react"
 // add or subtract product quantity 
-export default function ProductQuantity() {
+interface callbackProp{
+  onQuantityChange:(value:number)=>void
+}
+const ProductQuantity:React.FC<callbackProp>=({onQuantityChange})=>{
     const [addProduct,setAddProduct]=useState(1)
     
     const handleDecrement=()=>{
       if(addProduct>1){
         setAddProduct(addProduct-1)
+        onQuantityChange(addProduct)
       }
     }
   
     const handleIncrement=()=>{
       setAddProduct(addProduct+1)
+      onQuantityChange(addProduct)
+
     } 
   
     return(
@@ -25,4 +32,4 @@ export default function ProductQuantity() {
     )
   
   }
-  
+  export default ProductQuantity

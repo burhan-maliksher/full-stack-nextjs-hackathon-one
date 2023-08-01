@@ -26,11 +26,14 @@ export const POST = async (reequest: Request) => {
   }
 
   try {
-    const res = db.insert(cartTable).values({
-      user_id: cookies().get("user_id")?.value as string,
-      quantity: req.quantity,
-      product_id: req.product_id,
-    });
+    const res = db
+      .insert(cartTable)
+      .values({
+        user_id: cookies().get("user_id")?.value as string,
+        quantity: req.quantity,
+        product_id: req.product_id,
+      })
+      .returning();
     return NextResponse.json({ res });
   } catch (error) {
     console.log(error);
