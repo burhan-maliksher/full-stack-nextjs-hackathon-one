@@ -2,6 +2,7 @@ import { db, cartTable } from "@/lib/drizzle";
 import { cookies } from "next/headers";
 import { NextResponse, NextRequest } from "next/server";
 import { v4 as uuid } from "uuid";
+
 export const GET = async (reequest: Request) => {
   try {
     const res = db.select().from(cartTable);
@@ -27,7 +28,7 @@ export const POST = async (reequest: Request) => {
   try {
     const res = db.insert(cartTable).values({
       user_id: cookies().get("user_id")?.value as string,
-      quantity: 1,
+      quantity: req.quantity,
       product_id: req.product_id,
     });
     return NextResponse.json({ res });
