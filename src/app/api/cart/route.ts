@@ -15,13 +15,16 @@ export const GET = async (reequest: Request) => {
 
 export const POST = async (reequest: Request) => {
   const req = await reequest.json();
+  console.log(req.quantity);
 
   // generating random user id
   const uid = uuid();
   // storing user id in cookies
   const setCookie = cookies();
 
-  if (!cookies().has("user_id")) {
+  const user_id = cookies().get("user_id");
+
+  if (!user_id) {
     setCookie.set("user_id", uid);
   }
 
@@ -29,14 +32,15 @@ export const POST = async (reequest: Request) => {
     const res = db
       .insert(cartTable)
       .values({
-        user_id: cookies().get("user_id")?.value as string,
-        quantity: req.quantity,
         product_id: req.product_id,
+        // quantity: req.quantity,
+        quantity: 1,
+        user_id: cookies().get("user_id")?.value as string,
       })
       .returning();
     return NextResponse.json({ res });
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ message: "something went wrong" });
+    // console.log(error);
+    // return NextResponse.json({ error, message: "something went wrong" });
   }
 };
