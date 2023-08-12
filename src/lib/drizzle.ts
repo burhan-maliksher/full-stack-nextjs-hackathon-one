@@ -2,7 +2,7 @@ import { drizzle } from "drizzle-orm/vercel-postgres";
 import { sql } from "@vercel/postgres";
 import { pgTable, serial, varchar, integer } from "drizzle-orm/pg-core";
 
-export const cartTable = pgTable("cart", {
+export const cartTable = pgTable("cart1", {
   id: serial("id").primaryKey(),
   user_id: varchar("user_id", {
     length: 255,

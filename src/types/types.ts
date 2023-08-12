@@ -9,7 +9,7 @@ export type IProduct = {
 };
 
 export type IProductDynamic = {
-  id: string;
+  _id: string;
   name: string;
   producttype: string;
   size: [string];

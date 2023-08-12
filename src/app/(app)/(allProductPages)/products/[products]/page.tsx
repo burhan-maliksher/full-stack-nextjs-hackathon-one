@@ -38,6 +38,7 @@ export default async function Product({ params }: {
     
     const ProductName=ReplaceDashWithSpace(params.products)
     const data = await getProductDataFromSanity(ProductName)
+    // console.log(data[0]._id);
     
     
 return (
@@ -46,6 +47,8 @@ return (
     {
       // 
       data.length!==0?data.map((item) => (
+        
+        
           <>
             <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
              {/* displaying all images of a product */}
@@ -53,8 +56,8 @@ return (
               
               <div className="flex flex-col justify-center"> 
                 <div>
-                  <h1 key={item.id} className='font-normal text-3xl'>{item.name}</h1>
-                  <h2 key={item.id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
+                  <h1 key={item._id} className='font-normal text-3xl'>{item.name}</h1>
+                  <h2 key={item._id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
                 </div>
                 <div>
                   <h5 className="text-sm font-extrabold text-gray-700 pt-8 pb-2">SELECT SIZE</h5>
@@ -73,7 +76,7 @@ return (
                     <FiShoppingCart className='pr-2 w-8 h-8'/>
                     <p className="pt-1">Add to Cart</p>
                   </Link>
-                  <h4 key={item.id} className='font-bold pt-2 text-2xl'>${item.price}.00</h4>
+                  <h4 key={item._id} className='font-bold pt-2 text-2xl'>${item.price}.00</h4>
                 </div> */}
               </div> 
             </div>
@@ -84,7 +87,7 @@ return (
                 <div className="flex flex-col ">
                   <div className="flex flex-col md:flex-row md:space-x-8">
                     <h3 className=" text-gray-500 text-xl font-semibold pt-4 md:w-96  ">PRODUCT DETAILS</h3>
-                    <p key={item.id} className='font-light text-justify md:text-left  md:w-fit tracking-wide text-lg pt-4 '>{item.productdetail}</p>
+                    <p key={item._id} className='font-light text-justify md:text-left  md:w-fit tracking-w_ide text-lg pt-4 '>{item.productdetail}</p>
                   </div>
                   <div className="flex flex-col md:flex-row md:space-x-8">
                     <h3 className=" text-gray-500 text-lg  font-semibold pt-8 md:w-64 lg:w-72">PRODUCT CARE</h3>

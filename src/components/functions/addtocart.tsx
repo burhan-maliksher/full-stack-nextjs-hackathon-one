@@ -9,6 +9,8 @@ import { log } from 'console';
 export default function AddtoCart(props:{value: IProductDynamic}) {
     const [pdQuantity,setPdQuantity]=useState<number>(1)
     const item=props.value
+    // console.log(item._id);
+    
     
     const handleAddtoCart=async()=>{
       // console.log("hi");
@@ -16,7 +18,7 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
       const res =await fetch("/api/cart",{
         method:"POST",
         body: JSON.stringify({
-          product_id:item.id,
+          product_id:item._id,
           quantity: pdQuantity,         
         })
       })
@@ -41,7 +43,7 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
           <FiShoppingCart className='pr-2 w-8 h-8'/>
           <p className="pt-1">Add to Cart</p>
         </button>
-        <h4 key={item.id} className='font-bold pt-2 text-2xl'>${item.price}.00</h4>
+        <h4 key={item._id} className='font-bold pt-2 text-2xl'>${item.price}.00</h4>
       </div>  
     </>
   )
