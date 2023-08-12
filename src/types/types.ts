@@ -1,7 +1,7 @@
 import { Image } from "sanity";
 
 export type IProduct = {
-  id: string;
+  _id: string;
   name: string;
   producttype: string;
   price: number;

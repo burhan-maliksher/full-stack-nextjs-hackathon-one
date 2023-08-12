@@ -42,11 +42,14 @@ export const POST = async (request: NextRequest) => {
         product_id: req.product_id,
         quantity: req.quantity,
         // quantity: 1,
+        // user_id: "test",
+        // product_id: "testid",
+        // quantity: 1,
       })
       .returning();
     return NextResponse.json({ res });
   } catch (error) {
-    // console.log(error);
-    // return NextResponse.json({ error, message: "something went wrong" });
+    console.log(error);
+    return NextResponse.json({ error, message: "something went wrong" });
   }
 };
