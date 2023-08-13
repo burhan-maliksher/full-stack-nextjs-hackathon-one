@@ -41,9 +41,9 @@ export default async function Male() {
                     <Link href={`/products/${ReplaceSpaceWithDash(item.name)}`} >                      
                       <Image src={urlForImage(item.image).width(200).url()} alt='product' width={300} height={300} className='w-full h-auto' />
                     </Link>
-                    <h1 key={item.id} className='font-bold'>{item.name}</h1>
-                    <h2 key={item.id}>{item.producttype}</h2>
-                    <h2 key={item.id} className='font-bold text-lg'>${item.price}</h2>
+                    <h1 key={item._id} className='font-bold'>{item.name}</h1>
+                    <h2 key={item._id}>{item.producttype}</h2>
+                    <h2 key={item._id} className='font-bold text-lg'>${item.price}</h2>
                   </div>
                 </>
               )):<div className=' hidden '></div>
