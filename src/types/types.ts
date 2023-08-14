@@ -18,3 +18,11 @@ export type IProductDynamic = {
   price: number;
   image: [Image];
 };
+
+export type IProductCart = {
+  _id: string;
+  name: string;
+  producttype: string;
+  price: number;
+  image: [Image];
+};

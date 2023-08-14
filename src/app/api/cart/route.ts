@@ -7,8 +7,15 @@ import { v4 as uuid } from "uuid";
 export const GET = async (request: NextRequest) => {
   const req = request.nextUrl;
   const uid = req.searchParams.get("user_id") as string;
+  // console.log(uid);
+
   try {
-    const res = db.select().from(cartTable).where(eq(cartTable.user_id, uid));
+    const res = await db
+      .select()
+      .from(cartTable)
+      .where(eq(cartTable.user_id, uid));
+    // console.log(res);
+
     return NextResponse.json({ res });
   } catch (error) {
     console.log(error);
@@ -33,7 +40,7 @@ export const POST = async (request: NextRequest) => {
 
   if (!user_id) {
     setCookie.set("user_id", uid);
-    console.log(cookies().get("user_id")?.value);
+    // console.log(cookies().get("user_id")?.value);
   }
 
   try {
