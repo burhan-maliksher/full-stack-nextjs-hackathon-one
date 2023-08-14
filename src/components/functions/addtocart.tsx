@@ -6,7 +6,7 @@ import { IProductDynamic } from "@/types/types";
 // import { log } from 'console';
 import toast, { Toaster } from 'react-hot-toast';
 import {LiaCheckCircle} from "react-icons/lia"
-
+import {GiCancel} from "react-icons/gi"
 
 export default function AddtoCart(props:{value: IProductDynamic}) {
     const [pdQuantity,setPdQuantity]=useState<number>(1)
@@ -29,7 +29,7 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
           })
         })
         const result=await res.json()
-        const notify = () =>toast(`${pdQuantity} ${item.name} added to the cart`,{icon:<LiaCheckCircle className=' text-green-600'/>}) ;
+        const notify = () =>toast(`${pdQuantity} ${item.name} added to the cart`,{icon:<LiaCheckCircle className=' text-green-600 w-8 h-8'/>}) ;
         notify()
         // notify
         // const notify = () => toast('${item.name} added to the cart') ;
@@ -40,7 +40,8 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
       // console.log(result);
     }catch(error){
       console.log(error,{message:"something went wrong"});
-      
+      const notify = () =>toast(`Something went wrong: Fialed to add to the cart`,{icon:<GiCancel className=' text-red-600 w-8 h-8'/>}) ;
+      notify()
     }
 
     }
