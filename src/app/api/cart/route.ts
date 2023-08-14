@@ -18,7 +18,7 @@ export const GET = async (request: NextRequest) => {
 
     return NextResponse.json({ res });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     return NextResponse.json({ message: "something went wrong" });
   }
 };

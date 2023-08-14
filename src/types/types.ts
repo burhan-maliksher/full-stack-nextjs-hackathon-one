@@ -24,5 +24,5 @@ export type IProductCart = {
   name: string;
   producttype: string;
   price: number;
-  image: [Image];
+  image: Image;
 };

@@ -4,7 +4,10 @@ import { client } from '@/lib/sanityClient';
 import { IProductCart, IProductDynamic } from '@/types/types';
 import { cookies } from 'next/headers';
 import React from 'react'
-
+import Image from 'next/image';
+import { urlForImage } from '../../../../sanity/lib/image';
+import Link from 'next/link';
+import {RiDeleteBin5Line} from "react-icons/ri"
 // fetching product data from sanity
 const getProductDataFromSanity = async (productList:string[]):Promise<IProductCart[] > => {
   try {
@@ -15,7 +18,7 @@ const getProductDataFromSanity = async (productList:string[]):Promise<IProductCa
       name,
       producttype,
       price, 
-      image,   
+      image[0],   
       }
     `,{productList});
     
@@ -37,16 +40,9 @@ export default async function CartItems() {
   let data: IProductCart[]=[]
   if(uid){
     const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
-    // const req =await fetch(`/api/cart`,{
-    //   method:"GET",
-    //   body: JSON.stringify({
-    //     user_id:uid,
-    //     // quantity: pdQuantity,         
-    //   })
-    // })
     
     const result= await req.json()
-    console.log(result.res[0].product_id);
+    // console.log(result.res[0].product_id);
    
     // list of products in cart
     const productList=await result.res.map((item: { product_id: string; })=>(item.product_id))
@@ -54,73 +50,63 @@ export default async function CartItems() {
       // console.log(productList);      
 
     data = await getProductDataFromSanity(productList)
-    console.log(data[0]);
+    // console.log(data[0]);
     
   }
   return (
     <>
     <div className='flex flex-col pb-14 md:pb-20 xl:grid-cols-4 w-full gap-x-8 gap-y-16'>
-      {
-        // 
-        data.length!==0 ? data.map((item) => (
-          
-          
-            <>
-              <div className='grid grid-cols-1 lg:grid-cols-2 gap-8'>
-               {/* displaying all images of a product */}
-                <ProductAllImage items={item.image}/>
-                
-                <div className="flex flex-col justify-center"> 
-                  <div>
-                    <h1 key={item._id} className='font-normal text-3xl'>{item.name}</h1>
-                    <h2 key={item._id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
+    <h2 className='font-bold text-2xl text-center md:text-left md:text-4xl mt-10 '>Shopping Cart</h2>
+    <div className='flex flex-col lg:flex-row md:space-y-8 lg:justify-around'>
+      <div className='flex flex-col  md:space-y-8'>
+        {
+          // 
+          data.length!==0 ? data.map((item) => (          
+              <>
+                <div className='flex flex-col items-center lg:items-start '>
+                {/* <div className='grid grid-cols-1'> */}
+                {/* displaying all images of a product */}
+                  <div className="flex flex-col md:flex-row  justify-center md:justify-around lg:justify-start md:w-full lg:space-x-8 ">
+                    <Image src={urlForImage(item.image).width(100).url()} alt='product' width={100} height={100} className='w-64   h-auto border rounded-xl' />
+
+                    <div className="flex flex-col justify-center md:justify-start md:space-y-4 mt-4">
+                      <div className='flex'>
+                        <h1 key={item._id} className='font-light text-2xl justify-start'>{item.name}</h1>
+                        <RiDeleteBin5Line className='justify-end w-10'/>
+                      </div>
+                      <h2 key={item._id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
+                      <h2 key={item._id} className="text-xl font-medium text-gray-700">Delivery Estimation</h2>
+                      <h2 key={item._id} className="text-xl font-semibold text-yellow-400">5 Working Days</h2>
+                      <div className='flex'>
+                        <h2 key={item._id} className="text-xl font-bold text-gray-700 justify-start">${item.price}</h2>
+                        <div className='justify-end'>- 1 +</div>
+                      </div>
+                    </div>
                   </div>
-                  {/* <div>
-                    <h5 className="text-sm font-extrabold text-gray-700 pt-8 pb-2">SELECT SIZE</h5>
-                    <div className="flex space-x-4 md:space-x-8 ">
-                      {item.size.map((item,index)=>(
-                        <p key={index} className=" p-2 w-full md:w-fit text-gray-500 font-bold">{item}</p>
-                      ))}
-                    </div>
-                  </div> */}
-                  {/* add quantity of product */}
-                  {/* <AddtoCart value={item}/> */}
-                  {/* <ProductQuantity/> */}
-                  {/* add to card  */}
-                  {/* <div className="mt-8 flex justify-around md:justify-start md:space-x-4">
-                    <Link href={""} className="px-4 py-2 font-bold flex  bg-black text-white">
-                      <FiShoppingCart className='pr-2 w-8 h-8'/>
-                      <p className="pt-1">Add to Cart</p>
-                    </Link>
-                    <h4 key={item._id} className='font-bold pt-2 text-2xl'>${item.price}.00</h4>
-                  </div> */}
+
                 </div> 
-              </div>
-              {/* displays product details  */}
-              {/* <div>  
-                <div className="mt-24 mb-16">
-                  <h2 className="border-b-2 border-gray-300 text-3xl font-semibold pb-4">Product Information</h2>
-                  <div className="flex flex-col ">
-                    <div className="flex flex-col md:flex-row md:space-x-8">
-                      <h3 className=" text-gray-500 text-xl font-semibold pt-4 md:w-96  ">PRODUCT DETAILS</h3>
-                      <p key={item._id} className='font-light text-justify md:text-left  md:w-fit tracking-w_ide text-lg pt-4 '>{item.productdetail}</p>
-                    </div>
-                    <div className="flex flex-col md:flex-row md:space-x-8">
-                      <h3 className=" text-gray-500 text-lg  font-semibold pt-8 md:w-64 lg:w-72">PRODUCT CARE</h3> */}
-                      {/* <div>  */}
-                        {/* {item.productcare.map((item,index)=>( */}
-                          {/* <li key={index} className='font-bold text-gray-700 text-sm pt-4 '>{item}</li> */}
-                        {/* ))} */}
-                      {/* </div> */}
-                    {/* </div>
-                  </div> 
-                </div>
-              </div> */}
-            </>
-          )):<div className=' hidden '></div>
-              
-          
-      }
+                
+              </>
+            )):<div className=' hidden '></div>    
+        }
+      </div> 
+
+      {/* order summary */}
+      <div className='text-lg flex flex-col space-y-4 mt-12 lg:mt-0'>
+        <h3 className='text-2xl font-bold'>Order Summary</h3>
+        <div className='flex flex-row space-x-2 '>
+          <div className='justify-start'>Quantity</div>
+          <div className='justify-end'>0 Products</div>
+        </div>
+        <div className='flex space-x-2  '>
+          <div className=' justify-start'>Sub Total</div>
+          <div className=' justify-end'>$0</div>
+        </div>
+        <Link href={"/allProducts"} className="bg-slate-800 w-full h-auto text-xl font-bold p-4 text-white flex justify-center space-x-4">
+            Process to Checkout
+        </Link>
+      </div>
+    </div>
     </div>
     {
       data.length===0?<div className='flex w-full  h-full m-36 pb-24 align-middle justify-center '>
