@@ -99,7 +99,7 @@ export default async function CartItems() {
       </div> 
         {data.length!==0 &&
       // {/* order summary */}
-      <div className='text-lg flex flex-col space-y-4 mt-12 lg:mt-0 lg:ml-8'>
+      <div className='text-lg flex flex-col space-y-4 mt-12 lg:mt-0 lg:ml-8 '>
         
         <h3 className='text-2xl font-bold text-center md:text-left'>Order Summary</h3>
         <div className='flex flex-row space-x-2 w-[18rem] md:w-[45rem] lg:w-[24rem] xl:w-[30rem] '>
