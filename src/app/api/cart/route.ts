@@ -52,7 +52,7 @@ export const POST = async (request: NextRequest) => {
         user_id: user_id as string,
       })
       .returning();
-    console.log(res);
+    // console.log(res);
 
     return NextResponse.json({ res });
   } catch (error) {
