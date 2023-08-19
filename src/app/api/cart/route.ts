@@ -1,5 +1,6 @@
 import { db, cartTable } from "@/lib/drizzle";
 import { eq } from "drizzle-orm";
+import { request } from "https";
 import { cookies } from "next/headers";
 import { NextResponse, NextRequest } from "next/server";
 import { v4 as uuid } from "uuid";
@@ -60,3 +61,6 @@ export const POST = async (request: NextRequest) => {
     return NextResponse.json({ error, message: "something went wrong" });
   }
 };
+
+export const Delete = async (request: NextRequest) => {};
+const req = request.nextUrl;

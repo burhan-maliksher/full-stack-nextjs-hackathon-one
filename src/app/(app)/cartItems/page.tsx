@@ -81,7 +81,7 @@ export default async function CartItems() {
                         {/* <button className='w-[2rem]' >
                           <RiDeleteBin5Line className=' w-6 h-6'/>
                         </button> */}
-                        <ProductDeleteBtn productId={item._id} />
+                        <ProductDeleteBtn productId={item._id} userId={cookies().get("user_id")?.value}/>
                       </div>
                       <h2 key={item._id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
                       <h2 key={item._id} className="text-xl font-medium text-gray-700">Delivery Estimation</h2>

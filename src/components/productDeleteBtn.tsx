@@ -4,12 +4,12 @@ import { RiDeleteBin5Line } from 'react-icons/ri'
 
 
 
-export default function ProductDeleteBtn(props:{productId:string}) {
-    const productId = props.productId
+export default function ProductDeleteBtn(props:{productId:string,userId:string|undefined}) {
+    const {productId,userId} = props
 
     const handleDelete=async ()=>{
         try {
-            const req =await fetch(`/api/cart?productId=${productId}`,{
+            const req =await fetch(`/api/cart?productId=${productId}&userId=${userId}`,{
                 method:'Delete',
                 headers:{
                     'Content-Type':'application/json',
