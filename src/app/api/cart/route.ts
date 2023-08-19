@@ -76,11 +76,11 @@ export const DELETE = async (request: NextRequest) => {
     // .where(
     //   and(eq(cartTable.user_id, uid), eq(cartTable.product_id, productId))
     // );
-    console.log(res);
+    // console.log(res);
 
     return NextResponse.json({ res });
   } catch (error) {
-    console.log(error);
+    // console.log(error);
 
     return NextResponse.json({
       message: "Error Something went wrong please try again",
