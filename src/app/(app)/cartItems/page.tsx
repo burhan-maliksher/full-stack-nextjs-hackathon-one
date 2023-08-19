@@ -43,6 +43,7 @@ export default async function CartItems() {
   // console.log(uid);
   let data: IProductCart[]=[]
   if(uid){
+    // const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
     const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
     
     const result= await req.json()
