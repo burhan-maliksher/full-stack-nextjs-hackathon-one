@@ -9,6 +9,7 @@ import { urlForImage } from '../../../../sanity/lib/image';
 import Link from 'next/link';
 import {RiDeleteBin5Line} from "react-icons/ri"
 import {BiShoppingBag} from "react-icons/bi"
+import ProductDeleteBtn from '@/components/productDeleteBtn';
 
 
 // fetching product data from sanity
@@ -77,9 +78,10 @@ export default async function CartItems() {
                         <div className='w-[14rem] md:w-[18rem] lg:w-[22rem] xl:w-[28rem]'>
                           <h1 key={item._id} className='font-light text-2xl '>{item.name}</h1>
                         </div>
-                        <button className='w-[2rem]'>
+                        {/* <button className='w-[2rem]' >
                           <RiDeleteBin5Line className=' w-6 h-6'/>
-                        </button>
+                        </button> */}
+                        <ProductDeleteBtn productId={item._id} />
                       </div>
                       <h2 key={item._id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
                       <h2 key={item._id} className="text-xl font-medium text-gray-700">Delivery Estimation</h2>

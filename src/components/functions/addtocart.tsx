@@ -22,6 +22,7 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
       try{
 
         const res =await fetch("/api/cart",{
+          cache:'no-store',
           method:"POST",
           body: JSON.stringify({
             product_id:item._id,
