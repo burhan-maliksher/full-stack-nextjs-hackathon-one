@@ -3,13 +3,18 @@ import ProductAllImage from '@/components/functions/productallimage';
 import { client } from '@/lib/sanityClient';
 import { IProductCart, IProductDynamic } from '@/types/types';
 import { cookies } from 'next/headers';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import { urlForImage } from '../../../../sanity/lib/image';
 import Link from 'next/link';
 import {RiDeleteBin5Line} from "react-icons/ri"
 import {BiShoppingBag} from "react-icons/bi"
 import ProductDeleteBtn from '@/components/productDeleteBtn';
+import { GET } from '@/app/api/cart/route';
+import { NextURL } from 'next/dist/server/web/next-url';
+import { useRouter } from 'next/router';
+import { NextRequest } from 'next/server';
+import ProductQuantity from '@/components/functions/productquantity';
 
 
 // fetching product data from sanity
@@ -38,13 +43,38 @@ const getProductDataFromSanity = async (productList:string[]):Promise<IProductCa
 
 
 export default async function CartItems() {
+  // const [pdQuantity,setPdQuantity]=useState<number>(1)
+     // callback for getting value from child to parent
+    //  const onClickHandleQuantity=(value:number)=>{
+    //   setPdQuantity(value)
+    //   // console.log(value);
+      
+    // }
+
+
   // 
   const uid = cookies().get("user_id")?.value
   // console.log(uid);
   let data: IProductCart[]=[]
   if(uid){
-    // const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
-    const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
+
+  // const baseUrl =async (request:NextRequest) => {
+  //     const url=request.nextUrl.basePath
+  //     console.log(url);
+  //     return url
+  //     //  
+  //   }
+  
+  const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`,{
+    // const req =await fetch(`/api/cart?user_id=${uid}`,{
+      // const req =await fetch(`${baseUrl}/api/cart?user_id=${uid}`,{
+      cache:'no-cache',
+      method:'GET',
+      headers:{
+        'Content-Type':'application/json',
+    }
+    })
+    // const req =await fetch(`/api/cart?user_id=${uid}`)
     
     const result= await req.json()
     // console.log(result.res[0].product_id);
@@ -90,6 +120,7 @@ export default async function CartItems() {
                       <div className='flex w-[16rem] md:w-[20rem] lg:w-[24rem] xl:w-[30rem]'>
                         <h2 key={item._id} className="text-xl font-bold text-gray-700 w-[8rem] md:w-[12rem] lg:w-[16rem] xl:w-[20rem]">${item.price}</h2>
                         <div className='justify-end'>- 1 +</div>
+                        {/* <ProductQuantity onQuantityChange={onClickHandleQuantity}/> */}
                       </div>
                     </div>
                   </div>

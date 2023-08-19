@@ -6,6 +6,7 @@ import { useState } from "react"
 interface callbackProp{
   onQuantityChange:(value:number)=>void
 }
+
 const ProductQuantity:React.FC<callbackProp>=({onQuantityChange})=>{
     const [addProduct,setAddProduct]=useState(1)
     
