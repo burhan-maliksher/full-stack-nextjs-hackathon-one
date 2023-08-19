@@ -1,5 +1,5 @@
 import { db, cartTable } from "@/lib/drizzle";
-import { eq } from "drizzle-orm";
+import { and, eq } from "drizzle-orm";
 import { request } from "https";
 import { cookies } from "next/headers";
 import { NextResponse, NextRequest } from "next/server";
@@ -62,5 +62,28 @@ export const POST = async (request: NextRequest) => {
   }
 };
 
-export const Delete = async (request: NextRequest) => {};
-const req = request.nextUrl;
+export const DELETE = async (request: NextRequest) => {
+  const req = request.nextUrl;
+  const uid = req.searchParams.get("userId") as string;
+  const productId = req.searchParams.get("productId") as string;
+
+  try {
+    const res = await db
+      .delete(cartTable)
+      .where(
+        and(eq(cartTable.user_id, uid), eq(cartTable.product_id, productId))
+      );
+    // .where(
+    //   and(eq(cartTable.user_id, uid), eq(cartTable.product_id, productId))
+    // );
+    console.log(res);
+
+    return NextResponse.json({ res });
+  } catch (error) {
+    console.log(error);
+
+    return NextResponse.json({
+      message: "Error Something went wrong please try again",
+    });
+  }
+};
