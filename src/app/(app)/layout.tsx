@@ -1,8 +1,11 @@
+"use client"
 import Nav from '@/view/layouts/nav'
 import './globals.css'
 import { Inter } from 'next/font/google'
 import Footer from '@/view/layouts/footer'
 import UpperFooter from '@/view/layouts/upperfooter'
+import Providers from "@/components/Provider";
+import { store } from '@/store/store'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -19,12 +22,16 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={` ${inter.className} overflow-x-hidden`} >
+        {/* {children} */}
+      
+       <Providers store={store}>
         <Nav/>
         <div className={` flex mx-auto max-w-screen-xl items-center flex-col  p-5 `}>
           {children}
           <UpperFooter/>
         </div>
-        <Footer/>        
+        <Footer/> 
+       </Providers>       
       </body>
     </html>
   )
