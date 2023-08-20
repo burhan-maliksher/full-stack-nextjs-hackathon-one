@@ -15,6 +15,7 @@ import { NextURL } from 'next/dist/server/web/next-url';
 import { useRouter } from 'next/router';
 import { NextRequest } from 'next/server';
 import ProductQuantity from '@/components/functions/productquantity';
+import OrderSummary from '@/components/code/orderSummary';
 
 
 // fetching product data from sanity
@@ -119,8 +120,11 @@ export default async function CartItems() {
                       <h2 key={item._id} className="text-xl font-semibold text-yellow-400">5 Working Days</h2>
                       <div className='flex w-[16rem] md:w-[20rem] lg:w-[24rem] xl:w-[30rem]'>
                         <h2 key={item._id} className="text-xl font-bold text-gray-700 w-[8rem] md:w-[12rem] lg:w-[16rem] xl:w-[20rem]">${item.price}</h2>
-                        <div className='justify-end'>- 1 +</div>
+                        {/* <div className='justify-end'>- 1 +</div> */}
                         {/* <ProductQuantity onQuantityChange={onClickHandleQuantity}/> */}
+                        {/* <div className='bg-red-300'> */}
+                        <ProductQuantity />
+                        {/* </div> */}
                       </div>
                     </div>
                   </div>
@@ -131,24 +135,23 @@ export default async function CartItems() {
             )):<div className=' hidden '></div>    
         }
       </div> 
-        {data.length!==0 &&
-      // {/* order summary */}
-      <div className='text-lg flex flex-col space-y-4 mt-12 lg:mt-0 lg:ml-8 '>
-        
-        <h3 className='text-2xl font-bold text-center md:text-left'>Order Summary</h3>
-        <div className='flex flex-row space-x-2 w-[18rem] md:w-[45rem] lg:w-[24rem] xl:w-[30rem] '>
-          <div className='w-[10rem] md:w-[32rem] lg:w-[16rem] xl:w-[20rem]'>Quantity</div>
-          <div className='justify-end'>0 Products</div>
-        </div>
-        
-        <div className='flex space-x-2 w-[18rem] md:w-[45rem] lg:w-[24rem] xl:w-[30rem] '>
-          <div className=' w-[10rem] md:w-[32rem] lg:w-[16rem] xl:w-[20rem]'>Sub Total</div>
-          <div className=' justify-end'>$0</div>
-        </div>
-        <Link href={"/allProducts"} className="bg-slate-800 w-full h-auto text-xl font-bold p-4 text-white flex justify-center space-x-4">
-            Process to Checkout
-        </Link>
-      </div>
+        {data.length!==0 && <><OrderSummary /></>
+            // {/* order summary */}
+            // <div className='text-lg flex flex-col space-y-4 mt-12 lg:mt-0 lg:ml-8 '>
+            //   <h3 className='text-2xl font-bold text-center md:text-left'>Order Summary</h3>
+            //   <div className='flex flex-row space-x-2 w-[18rem] md:w-[45rem] lg:w-[24rem] xl:w-[30rem] '>
+            //     <div className='w-[10rem] md:w-[32rem] lg:w-[16rem] xl:w-[20rem]'>Quantity</div>
+            //     <div className='justify-end'>0 Products</div>
+            //   </div>
+            //   <div className='flex space-x-2 w-[18rem] md:w-[45rem] lg:w-[24rem] xl:w-[30rem] '>
+            //     <div className=' w-[10rem] md:w-[32rem] lg:w-[16rem] xl:w-[20rem]'>Sub Total</div>
+            //     <div className=' justify-end'>$0</div>
+            //   </div>
+            //   <Link href={"/allProducts"} className="bg-slate-800 w-full h-auto text-xl font-bold p-4 text-white flex justify-center space-x-4">
+            //       Process to Checkout
+            //   </Link>
+            // </div>
+            // <></></>
       }
     </div>
     </div>

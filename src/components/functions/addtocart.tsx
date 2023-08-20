@@ -57,7 +57,10 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
     return (
     <>
       {/* <ProductQuantity onQuantityChange={onClickHandleQuantity}/> */}
+      <div className="mt-8 flex space-x-6 ">
+        <h4 className="text-lg font-semibold pt-2">Quantity:</h4>    
       <ProductQuantity />
+      </div>
       {/* add to card  */}
       <div className="mt-8 flex justify-around md:justify-start md:space-x-4">
         <button className="px-4 py-2 font-bold flex bg-black text-white" onClick={handleAddtoCart}>
