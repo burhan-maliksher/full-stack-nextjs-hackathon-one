@@ -14,19 +14,22 @@ interface callbackProp{
 }
 
 // const ProductQuantity:React.FC<callbackProp>=({onQuantityChange})=>{
-const ProductQuantity=()=>{
+const ProductQuantity=(props:{productID:string,productPrice:number})=>{
+  const productID=props.productID
+  const productPrice=props.productPrice
   const dispatch =useAppDispatch();
   // const counterValue = useSelector((state:RootState)=>state.counterSlice.value) as React.ReactNode  
-  const cartCount = useSelector((state:RootState)=>state.cart.totalQuantity)   
+  const totalQuantity = useSelector((state:RootState)=>state.cart.totalQuantity)   
   const cartAmount = useSelector((state:RootState)=>state.cart.totalAmount)   
 
   const increment =()=>{
     // dispatch(counterActions.increment())
-    dispatch(cartActions.addtoCart(cartCount))
+    dispatch(cartActions.addtoCart({productID,totalQuantity,productPrice}))
   }
 
   const decrement =()=>{
-    dispatch(cartActions.removeFromCart(cartCount))
+    // dispatch(cartActions.removeFromCart(cartCount))
+    dispatch(cartActions.removeFromCart(productID))
   }
 
   // const [addProduct,setAddProduct]=useState(1)
@@ -52,7 +55,7 @@ const ProductQuantity=()=>{
         <p className="pt-2">{addProduct}</p>
         <p className="bg-gray-100 rounded-full text-4xl px-2 cursor-pointer font-extralight"onClick={handleIncrement}>+</p> */}
        <button className="bg-gray-100 rounded-full text-4xl px-3 cursor-pointer font-extralight" onClick={decrement}> - </button>
-        <p className="pt-2">{cartCount}</p>
+        <p className="pt-2">{totalQuantity}</p>
       <button className="bg-gray-100 rounded-full text-4xl px-2 cursor-pointer font-extralight"onClick={increment}>+</button>
       {/* // </div> */}
       </>
