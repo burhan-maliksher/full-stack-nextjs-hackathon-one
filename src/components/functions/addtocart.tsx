@@ -3,14 +3,11 @@ import React, { useEffect, useState } from 'react'
 import { FiShoppingCart } from 'react-icons/fi'
 import ProductQuantity from './productquantity';
 import { CartItem, IProductDynamic } from "@/types/types";
-// import { log } from 'console';
 import toast, { Toaster } from 'react-hot-toast';
 import {LiaCheckCircle} from "react-icons/lia"
 import {GiCancel} from "react-icons/gi"
-import UserId from './userId';
 import { v4 as uuid } from "uuid";
 
-// import { uuid } from 'drizzle-orm/pg-core';
 
 
 export default function AddtoCart(props:{value: IProductDynamic}) {
@@ -20,7 +17,7 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
     const [userId, setUserId] = useState<string | null>(null);
     const [cart, setCart] = useState<CartItem[]>([]);
   
- const Adduid=   useEffect(() => {
+   const Adduid=   useEffect(() => {
       // Check if the user is logged in (user id is in session storage)
       const storedUserId = sessionStorage.getItem('userId');
       if (storedUserId) {
@@ -88,27 +85,23 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
         Adduid;
         // add/update cart items in session storage
         UpdateCart;
-  
-  
+        // Check if the product already exists in the cart
+        const existingProductIndex = cart.findIndex((item) => item.productId === productId);
 
-  
-// Check if the product already exists in the cart
-    const existingProductIndex = cart.findIndex((item) => item.productId === productId);
-
-    if (existingProductIndex !== -1) {
-      // Product is in the cart, update its quantity
-      const updatedCart = [...cart];
-      updatedCart[existingProductIndex].productquantity = productquantity;
-      setCart(updatedCart);
-    } else {
-      // Product is not in the cart, add it
-      const newItem: CartItem = {
-        productId,
-        productPrice,
-        productquantity,
-      };
-      setCart([...cart, newItem]);
-    }
+        if (existingProductIndex !== -1) {
+          // Product is in the cart, update its quantity
+          const updatedCart = [...cart];
+          updatedCart[existingProductIndex].productquantity = productquantity;
+          setCart(updatedCart);
+        } else {
+          // Product is not in the cart, add it
+          const newItem: CartItem = {
+            productId,
+            productPrice,
+            productquantity,
+          };
+          setCart([...cart, newItem]);
+        }
 
 
         // UserId(pdQuantity,item._id)
