@@ -26,3 +26,9 @@ export type IProductCart = {
   price: number;
   image: Image;
 };
+
+export type CartItem = {
+  productId: string;
+  productPrice: number;
+  productquantity: number;
+};
