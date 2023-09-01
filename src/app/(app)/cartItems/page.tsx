@@ -1,13 +1,13 @@
-// "use client"
+"use client"
 import ProductAllImage from '@/components/functions/productallimage';
 import { client } from '@/lib/sanityClient';
 import { IProductCart, IProductDynamic } from '@/types/types';
-import { cookies } from 'next/headers';
-import React from 'react'
+// import { cookies } from 'next/headers';
+import React, { useEffect, useState } from 'react'
 import Image from 'next/image';
 import { urlForImage } from '../../../../sanity/lib/image';
 import Link from 'next/link';
-import {RiDeleteBin5Line} from "react-icons/ri"
+// import {RiDeleteBin5Line} from "react-icons/ri"
 import {BiShoppingBag} from "react-icons/bi"
 import ProductDeleteBtn from '@/components/productDeleteBtn';
 
@@ -39,25 +39,73 @@ const getProductDataFromSanity = async (productList:string[]):Promise<IProductCa
 
 export default async function CartItems() {
   // 
-  const uid = cookies().get("user_id")?.value
+  // const uid = cookies().get("user_id")?.value
   // console.log(uid);
+
+  
+  // getting product ids in cart from session stroage
+  let storedCart
   let data: IProductCart[]=[]
-  if(uid){
-    // const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
-    const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
+  // let productList:string[]=[]
+  const [productList, setProductList] = useState<string[]>([]);
+  const cartitem=useEffect(()=>{
+    let product:string[]=[]
+
+    const storedUserId = sessionStorage.getItem('userId');
+    console.log(storedUserId);
+  
+    if(storedUserId){
+       storedCart= sessionStorage.getItem('cart');
+      if(storedCart){
+        const cartData = JSON.parse(storedCart);
+        console.log(cartData);
+        
+        for(const item of cartData){
+          if(item.productId){
+            console.log(item.productId);
+            
+            product.push(item.productId)
+            console.log(product);
+            setProductList(product)
+            console.log(productList);
+            
+            // data=async()=>{
+            //   const list=await fetchItemsFromSanity(productList)
+            //   return list
+            // }
+          }
+        }
+      }
+      
+    }  
+  },[]) 
+  console.log(productList);
+     data = await getProductDataFromSanity(productList)
+
+  // async function fetchItemsFromSanity (productList:string[]){
+  //   const list = await getProductDataFromSanity(productList)
+  //   return list
+  //   console.log(list);
     
-    const result= await req.json()
+  // }
+  
+    // if(uid){
+    // const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
+    // const req =await fetch(`http://localhost:3000/api/cart?user_id=${uid}`)
+    
+    // const result= await req.json()
     // console.log(result.res[0].product_id);
    
     // list of products in cart
-    const productList=await result.res.map((item: { product_id: string; })=>(item.product_id))
+    // const productList=await result.res.map((item: { product_id: string; })=>(item.product_id))
+    // const productList=await storedCart.map((item: { product_id: string; })=>(item.product_id))
   
       // console.log(productList);      
 
-    data = await getProductDataFromSanity(productList)
+    // data = await getProductDataFromSanity(productList)
     // console.log(data[0]);
     
-  }
+  // }
   return (
     <>
     <div className='flex flex-col pb-14 md:pb-20 xl:grid-cols-4 w-full gap-x-8 gap-y-16'>
@@ -82,7 +130,7 @@ export default async function CartItems() {
                         {/* <button className='w-[2rem]' >
                           <RiDeleteBin5Line className=' w-6 h-6'/>
                         </button> */}
-                        <ProductDeleteBtn productId={item._id} userId={cookies().get("user_id")?.value}/>
+                        <ProductDeleteBtn productId={item._id} userId={sessionStorage.getItem('userId')}/>
                       </div>
                       <h2 key={item._id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
                       <h2 key={item._id} className="text-xl font-medium text-gray-700">Delivery Estimation</h2>
