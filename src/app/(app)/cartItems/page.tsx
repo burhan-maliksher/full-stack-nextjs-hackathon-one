@@ -84,10 +84,10 @@ export default async function CartItems() {
    // Function to receive and update the cart data
    const updateCartData = (updatedCartData: IProductCart[]) => {
     // setProductList();
-    setCart(updatedCartData);
+    // setCart(updatedCartData);
     
     // Recreate the product list based on the updated cart data
-    const updatedProductList = updatedCartData.map(item => item.productId);
+    const updatedProductList = updatedCartData.map(item => item._id);
     setProductList(updatedProductList);
   };
   console.log(productList);
