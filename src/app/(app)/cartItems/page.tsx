@@ -81,7 +81,7 @@ export default async function CartItems() {
       
     }  
   },[]) 
-   // Function to receive and update the cart data
+   // Function to receive and update the cart data on remove of item from cart
    const updateCartData = (updatedCartData: IProductCart[]) => {
     // setProductList();
     // setCart(updatedCartData);
