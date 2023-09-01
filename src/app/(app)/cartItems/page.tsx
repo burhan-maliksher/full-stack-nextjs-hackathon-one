@@ -48,6 +48,8 @@ export default async function CartItems() {
   let data: IProductCart[]=[]
   // let productList:string[]=[]
   const [productList, setProductList] = useState<string[]>([]);
+  const [cart, setCart] = useState<IProductCart[]>([]);
+
   const cartitem=useEffect(()=>{
     let product:string[]=[]
 
@@ -82,6 +84,7 @@ export default async function CartItems() {
    // Function to receive and update the cart data
    const updateCartData = (updatedCartData: IProductCart[]) => {
     // setProductList();
+    setCart(updatedCartData);
     
     // Recreate the product list based on the updated cart data
     const updatedProductList = updatedCartData.map(item => item.productId);
