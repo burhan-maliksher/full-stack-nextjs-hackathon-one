@@ -2,12 +2,12 @@
 import React from 'react'
 import toast, { Toaster } from 'react-hot-toast'
 import { GiCancel } from 'react-icons/gi'
-import { LiaCheckCircle } from 'react-icons/lia'
+// import { LiaCheckCircle } from 'react-icons/lia'
 import { RiDeleteBin5Line } from 'react-icons/ri'
 
 
 
-export default function ProductDeleteBtn(props:{productId:string,userId:string|undefined}) {
+export default function ProductDeleteBtn(props:{productId:string,userId:string|null}) {
     const {productId,userId} = props
 
     const handleDelete=async ()=>{
