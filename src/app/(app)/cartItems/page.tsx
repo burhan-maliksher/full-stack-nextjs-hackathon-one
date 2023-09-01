@@ -79,6 +79,14 @@ export default async function CartItems() {
       
     }  
   },[]) 
+   // Function to receive and update the cart data
+   const updateCartData = (updatedCartData: IProductCart[]) => {
+    // setProductList();
+    
+    // Recreate the product list based on the updated cart data
+    const updatedProductList = updatedCartData.map(item => item.productId);
+    setProductList(updatedProductList);
+  };
   console.log(productList);
      data = await getProductDataFromSanity(productList)
 
@@ -130,7 +138,7 @@ export default async function CartItems() {
                         {/* <button className='w-[2rem]' >
                           <RiDeleteBin5Line className=' w-6 h-6'/>
                         </button> */}
-                        <ProductDeleteBtn productId={item._id} userId={sessionStorage.getItem('userId')}/>
+                        <ProductDeleteBtn productId={item._id} userId={sessionStorage.getItem('userId')} updatedCartfunc={updateCartData} />
                       </div>
                       <h2 key={item._id} className="text-xl font-bold text-gray-400">{item.producttype}</h2>
                       <h2 key={item._id} className="text-xl font-medium text-gray-700">Delivery Estimation</h2>
