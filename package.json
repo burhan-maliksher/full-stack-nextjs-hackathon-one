@@ -37,6 +37,10 @@
     "react-icons": "^4.8.0",
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+    "react-redux": "^8.1.2",
+>>>>>>> statemange
     "react-slick": "^0.29.0",
 =======
     "react-slideshow-image": "^4.2.1",

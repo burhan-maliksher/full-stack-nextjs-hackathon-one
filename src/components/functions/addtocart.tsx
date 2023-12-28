@@ -6,13 +6,31 @@ import { CartItem, IProductDynamic } from "@/types/types";
 import toast, { Toaster } from 'react-hot-toast';
 import {LiaCheckCircle} from "react-icons/lia"
 import {GiCancel} from "react-icons/gi"
+<<<<<<< HEAD
 import { v4 as uuid } from "uuid";
 
+=======
+import { RootState } from "@/store/store";
+import { useDispatch, useSelector } from "react-redux";
+import { useAppDispatch } from "@/types/hooks";
+import { cartActions } from '@/store/slice/cartSlice';
+>>>>>>> statemange
 
 
 export default function AddtoCart(props:{value: IProductDynamic}) {
-    const [pdQuantity,setPdQuantity]=useState<number>(1)
+  const totalQuantity = useSelector((state:RootState)=>state.cart.totalQuantity)   
+console.log(totalQuantity);
+
+  // const dispatch = useDispatch();
+  // const addItem = () => {
+  //   dispatch(cartActions.addToCart({ product: {}, quantity: 1 }));
+  //   // toast.success("Product added");
+  // };
+  // const [pdQuantity,setPdQuantity]=useState<number>(1)
     const item=props.value
+    // for passing id to redux state
+    const itemID=props.value._id
+    const itemPrice=props.value.price
     // console.log(item._id);
     const [userId, setUserId] = useState<string | null>(null);
     const [cart, setCart] = useState<CartItem[]>([]);
@@ -88,6 +106,7 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
         // Check if the product already exists in the cart
         const existingProductIndex = cart.findIndex((item) => item.productId === productId);
 
+<<<<<<< HEAD
         if (existingProductIndex !== -1) {
           // Product is in the cart, update its quantity
           const updatedCart = [...cart];
@@ -106,6 +125,22 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
 
         // UserId(pdQuantity,item._id)
         const notify = () =>toast(`${pdQuantity} ${item.name} added to the cart`,{icon:<LiaCheckCircle className=' text-green-600 w-8 h-8'/>}) ;
+=======
+        const res =await fetch("/api/cart",{
+          // cache:'no-store',
+          method:"POST",
+          body: JSON.stringify({
+            product_id:item._id,
+            // quantity: pdQuantity,         
+            quantity: totalQuantity,         
+          })
+        })
+        const result=await res.json()
+        // console.log(result);
+        
+        // const notify = () =>toast(`${pdQuantity} ${item.name} added to the cart`,{icon:<LiaCheckCircle className=' text-green-600 w-8 h-8'/>}) ;
+        const notify = () =>toast(`${totalQuantity} ${item.name} added to the cart`,{icon:<LiaCheckCircle className=' text-green-600 w-8 h-8'/>}) ;
+>>>>>>> statemange
         notify()
         // notify
         // const notify = () => toast('${item.name} added to the cart') ;
@@ -115,7 +150,7 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
       
       // console.log(result);
     }catch(error){
-      console.log(error,{message:"something went wrong"});
+      // console.log(error,{message:"something went wrong"});
       const notify = () =>toast(`Something went wrong: Fialed to add to the cart`,{icon:<GiCancel className=' text-red-600 w-8 h-8'/>}) ;
       notify()
     }
@@ -123,15 +158,19 @@ export default function AddtoCart(props:{value: IProductDynamic}) {
     }
 
     // callback for getting value from child to parent
-    const onClickHandleQuantity=(value:number)=>{
-      setPdQuantity(value)
-      // console.log(value);
+    // const onClickHandleQuantity=(value:number)=>{
+    //   setPdQuantity(value)
+    //   // console.log(value);
       
-    }
+    // }
 
     return (
     <>
-      <ProductQuantity onQuantityChange={onClickHandleQuantity}/>
+      {/* <ProductQuantity onQuantityChange={onClickHandleQuantity}/> */}
+      <div className="mt-8 flex space-x-6 ">
+        <h4 className="text-lg font-semibold pt-2">Quantity:</h4>    
+      <ProductQuantity productID={itemID} productPrice={itemPrice}/>
+      </div>
       {/* add to card  */}
       <div className="mt-8 flex justify-around md:justify-start md:space-x-4">
         <button className="px-4 py-2 font-bold flex bg-black text-white" onClick={()=>handleAddtoCart(item._id,item.price,pdQuantity)}>
