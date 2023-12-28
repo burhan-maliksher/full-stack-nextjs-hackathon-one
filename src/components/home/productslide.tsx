@@ -3,7 +3,11 @@
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+<<<<<<< HEAD
 import React, { useEffect, useState } from "react";
+=======
+import React, {useEffect, useState } from "react";
+>>>>>>> reactslicktest_clone
 import { client } from '@/lib/sanityClient'
 import Image from 'next/image';
 import { IProduct } from '@/types/types';
@@ -129,5 +133,4 @@ export default   function SimpleSlider():JSX.Element {
       </>
       );
 }
-
 
